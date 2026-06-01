@@ -1,0 +1,5713 @@
+{
+  "api_name": "addigy-documentation",
+  "base_url": "",
+  "description": "The [Addigy API](https://app.addigy.com/integrations) is designed to provide Addigy users with programmatic access to all data in their Addigy environment. Via the Addigy API users have read and write access to nearly all the data in their environment allowing them to automate activities in Addigy and integrate into 3rd party systems.\n\nAPI keys can be created within your Addigy organization by visiting [Account -\u003e Integrations](https://app.addigy.com/integrations).\n\n[Read our KB for general information ](https://support.addigy.com/hc/en-us/articles/16938210315411)\n\n**What does it mean if an API v2 endpoint is marked as “Beta”?** In rare cases, the required request and response data for an endpoint may change. Should a change be needed, Addigy will communicate the changes providing time for users to transition and test.\n\nIf you have questions or suggestions for the Addigy API Contact [Addigy Support](mailto:support@addigy.com)",
+  "mcp_ready": "full",
+  "http_transport": "standard",
+  "auth": {
+    "type": "api_key",
+    "header": "x-api-key",
+    "in": "header",
+    "env_vars": [
+      "ADDIGY_DOCUMENTATION_API_KEY"
+    ],
+    "env_var_specs": [
+      {
+        "name": "ADDIGY_DOCUMENTATION_API_KEY",
+        "kind": "per_call",
+        "required": true,
+        "sensitive": true,
+        "inferred": true
+      }
+    ],
+    "key_url": "https://app.addigy.com/integrations"
+  },
+  "required_headers": [],
+  "tools": [
+    {
+      "name": "assets_create",
+      "description": "Get a list of Default Alerts. Optional: ids, name_contains. Returns array of DefaultAssetAlert.",
+      "method": "POST",
+      "path": "/assets/default/alerts/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of ids to return"
+        },
+        {
+          "name": "name_contains",
+          "type": "string",
+          "location": "body",
+          "description": "Filter assets by name"
+        }
+      ]
+    },
+    {
+      "name": "assets_create-default",
+      "description": "Get a list of Default Maintenance Jobs. Optional: ids, name_contains. Returns array of DefaultAssetMaintenance.",
+      "method": "POST",
+      "path": "/assets/default/maintenance/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of ids to return"
+        },
+        {
+          "name": "name_contains",
+          "type": "string",
+          "location": "body",
+          "description": "Filter assets by name"
+        }
+      ]
+    },
+    {
+      "name": "assets_create-default-2",
+      "description": "Get a list of Default MDM Configurations. Optional: ids, name_contains. Returns array of DefaultAssetMdmConfiguration.",
+      "method": "POST",
+      "path": "/assets/default/mdm-configurations/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of ids to return"
+        },
+        {
+          "name": "name_contains",
+          "type": "string",
+          "location": "body",
+          "description": "Filter assets by name"
+        }
+      ]
+    },
+    {
+      "name": "assets_create-default-3",
+      "description": "Get a list of Default Self Service Configurations. Optional: ids, name_contains. Returns array of DefaultAssetSelfServiceConfiguration.",
+      "method": "POST",
+      "path": "/assets/default/self-service-configurations/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of ids to return"
+        },
+        {
+          "name": "name_contains",
+          "type": "string",
+          "location": "body",
+          "description": "Filter assets by name"
+        }
+      ]
+    },
+    {
+      "name": "configuration_list",
+      "description": "Get API key's permissions. Returns array of string.",
+      "method": "GET",
+      "path": "/configuration/permissions",
+      "params": []
+    },
+    {
+      "name": "device-script-assignments_create",
+      "description": "Creates a device script assignment in the organization. Required: agent_ids, script_id.",
+      "method": "POST",
+      "path": "/device-script-assignments",
+      "params": [
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Agent ids",
+          "required": true
+        },
+        {
+          "name": "script_id",
+          "type": "string",
+          "location": "body",
+          "description": "Script id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "device-script-assignments_delete",
+      "description": "Deletes a device script assignment from the organization. Required: script_id, agent_id. Destructive.",
+      "method": "DELETE",
+      "path": "/device-script-assignments",
+      "params": [
+        {
+          "name": "script_id",
+          "type": "string",
+          "location": "query",
+          "description": "Script or Command ID of the script.",
+          "required": true
+        },
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "query",
+          "description": "Agent ID of the device.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "device-script-assignments_list",
+      "description": "Get Device Script Assignments available for the organization. Optional: script_id, agent_id. Returns the DeviceScriptAssignmentsListResponse.",
+      "method": "GET",
+      "path": "/device-script-assignments",
+      "params": [
+        {
+          "name": "script_id",
+          "type": "string",
+          "location": "query",
+          "description": "Script or Command ID of the script to get device script assignments."
+        },
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "query",
+          "description": "Agent ID of the device to get device script assignments."
+        }
+      ]
+    },
+    {
+      "name": "devices_create",
+      "description": "Allow to query for a set of devices based on a value that pertains to one of their device facts. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "POST",
+      "path": "/devices",
+      "params": [
+        {
+          "name": "desired_fact_identifiers",
+          "type": "array",
+          "location": "body",
+          "description": "Optional field. Limits response to only provide the facts within the passed array. If no desired fact identifiers array is provided, all device facts are returned."
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "facts_create",
+      "description": "Create a custom fact. Required: name, os_architectures, return_type. Optional: notes. Returns the new FactEntitiesFactInstructionResponse.",
+      "method": "POST",
+      "path": "/facts/custom",
+      "params": [
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name of the custom fact.",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "location": "body",
+          "description": "Notes"
+        },
+        {
+          "name": "os_architectures",
+          "type": "object",
+          "location": "body",
+          "description": "Os architectures",
+          "required": true
+        },
+        {
+          "name": "return_type",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e string, number, boolean, list",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "facts_create-custom",
+      "description": "Assign Custom Facts to policies. Required: id, policies.",
+      "method": "POST",
+      "path": "/facts/custom/policy",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the custom fact to assign to policies.",
+          "required": true
+        },
+        {
+          "name": "policies",
+          "type": "array",
+          "location": "body",
+          "description": "Policies id(s) to add the custom fact to.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "facts_create-custom-2",
+      "description": "Get a list of Custom Facts filtered by id or name for an organization. Optional: page, per_page, query (plus 2 more). Returns the new FactsCreateCustom2Response.",
+      "method": "POST",
+      "path": "/facts/custom/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: id, name, return_type, version"
+        }
+      ]
+    },
+    {
+      "name": "facts_delete",
+      "description": "Delete a custom fact. Required: id. Destructive.",
+      "method": "DELETE",
+      "path": "/facts/custom",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Custom Fact id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "facts_delete-custom",
+      "description": "Unassign a custom fact from a policy. Required: id, policy_id. Destructive.",
+      "method": "DELETE",
+      "path": "/facts/custom/policy",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Custom Fact id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "facts_list",
+      "description": "Get all custom facts for the organization. Optional: page (default: 1), per_page (default: 50). Returns the FactEntitiesFactResponse.",
+      "method": "GET",
+      "path": "/facts/custom",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "query",
+          "description": "Requested Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "query",
+          "description": "Number of items in the response."
+        }
+      ]
+    },
+    {
+      "name": "facts_update",
+      "description": "Update a custom fact. Required: id, name, os_architectures, return_type. Optional: notes.",
+      "method": "PUT",
+      "path": "/facts/custom",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name of the custom fact.",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "location": "body",
+          "description": "Notes"
+        },
+        {
+          "name": "os_architectures",
+          "type": "object",
+          "location": "body",
+          "description": "Os architectures",
+          "required": true
+        },
+        {
+          "name": "return_type",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e string, number, boolean, list",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "feature-betas_create",
+      "description": "Enables a Beta Feature in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eToggle Feature Betas.",
+      "method": "POST",
+      "path": "/feature-betas/organizations",
+      "params": [
+        {
+          "name": "feature_flag_key",
+          "type": "string",
+          "location": "body",
+          "description": "Feature flag key"
+        }
+      ]
+    },
+    {
+      "name": "feature-betas_delete",
+      "description": "Disables the Beta Features from the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eToggle Feature Betas. Destructive.",
+      "method": "DELETE",
+      "path": "/feature-betas/organizations",
+      "params": [
+        {
+          "name": "feature_flag_key",
+          "type": "string",
+          "location": "query",
+          "description": "Beta Feature to remove"
+        }
+      ]
+    },
+    {
+      "name": "feature-betas_list",
+      "description": "Get all Beta Features available for the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eToggle Feature Betas.",
+      "method": "GET",
+      "path": "/feature-betas",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "query",
+          "description": "Requested Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "query",
+          "description": "Number of items in the response."
+        }
+      ]
+    },
+    {
+      "name": "files_create",
+      "description": "Get a list of file usages for a list of File IDs. Optional: file_ids. Returns array of FilesTrackedEntity.",
+      "method": "POST",
+      "path": "/files/usage",
+      "params": [
+        {
+          "name": "file_ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of file ids"
+        }
+      ]
+    },
+    {
+      "name": "impersonation_create",
+      "description": "Creates a session for impersonating into a child organization. Optional: child_orgid, parent_orgid, user_email. Returns the new ImpersonationSessionResponse.",
+      "method": "POST",
+      "path": "/impersonation/session",
+      "params": [
+        {
+          "name": "child_orgid",
+          "type": "string",
+          "location": "body",
+          "description": "Child orgid"
+        },
+        {
+          "name": "parent_orgid",
+          "type": "string",
+          "location": "body",
+          "description": "Parent orgid"
+        },
+        {
+          "name": "user_email",
+          "type": "string",
+          "location": "body",
+          "description": "User email"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_create",
+      "description": "Create a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Catalog Maintenance.",
+      "method": "POST",
+      "path": "/maintenance",
+      "params": [
+        {
+          "name": "day",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e For Monthly: a number between 1 to 27,\u003cbr\u003e For Daily: do not set a..."
+        },
+        {
+          "name": "enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Enabled"
+        },
+        {
+          "name": "expected_remediation_time",
+          "type": "int",
+          "location": "body",
+          "description": "Time in minutes needed to remediate"
+        },
+        {
+          "name": "frequency",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e Monthly, Daily or Weekly"
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "local_time",
+          "type": "bool",
+          "location": "body",
+          "description": "Local time"
+        },
+        {
+          "name": "max_try_count",
+          "type": "int",
+          "location": "body",
+          "description": "Max try count"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "prompt_user",
+          "type": "bool",
+          "location": "body",
+          "description": "Prompt user"
+        },
+        {
+          "name": "scheduled_time",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003eA number between 0 to 23"
+        },
+        {
+          "name": "scripts",
+          "type": "array",
+          "location": "body",
+          "description": "Scripts"
+        },
+        {
+          "name": "timeout_seconds",
+          "type": "int",
+          "location": "body",
+          "description": "Timeout seconds"
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_create-policy",
+      "description": "Assign polices to a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Maintenance.",
+      "method": "POST",
+      "path": "/maintenance/policy",
+      "params": [
+        {
+          "name": "maintenance_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the maintenance to update.",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id to be assigned to the maintenance."
+        }
+      ]
+    },
+    {
+      "name": "maintenance_create-query",
+      "description": "Get a list of maintenance items for an organization. Optional: page, per_page, query (plus 2 more). Returns the new MaintenanceCreateQueryResponse.",
+      "method": "POST",
+      "path": "/maintenance/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_create-staged",
+      "description": "Creates a staged maintenance item from an existing one. Optional: id.",
+      "method": "POST",
+      "path": "/maintenance/staged",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "The unique identifier for the maintenance request"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_create-staged-2",
+      "description": "Confirm a staged maintenance. This will create a maintenance with the same details as the staged maintenance and will send an event. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Catalog Maintenance.",
+      "method": "POST",
+      "path": "/maintenance/staged/confirm",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "The unique identifier for the maintenance request"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_create-staged-3",
+      "description": "Get a list of maintenance items for an organization. Optional: ids. Returns the new MaintenanceCreateStaged3Response.",
+      "method": "POST",
+      "path": "/maintenance/staged/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "Filter maintenance by ids."
+        }
+      ]
+    },
+    {
+      "name": "maintenance_delete",
+      "description": "Delete a maintenance item.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Catalog Maintenance. Destructive.",
+      "method": "DELETE",
+      "path": "/maintenance",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Maintenance id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "maintenance_delete-policy",
+      "description": "Unassign a maintenance item from policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Maintenance. Destructive.",
+      "method": "DELETE",
+      "path": "/maintenance/policy",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Maintenance id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "maintenance_delete-staged",
+      "description": "Deletes a staged maintenance item. Optional: id. Destructive.",
+      "method": "DELETE",
+      "path": "/maintenance/staged",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "The unique identifier for the maintenance request"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_update",
+      "description": "Update a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Catalog Maintenance.",
+      "method": "PUT",
+      "path": "/maintenance",
+      "params": [
+        {
+          "name": "day",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e For Monthly: a number between 1 to 27,\u003cbr\u003e For Daily: do not set a..."
+        },
+        {
+          "name": "enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Enabled"
+        },
+        {
+          "name": "expected_remediation_time",
+          "type": "int",
+          "location": "body",
+          "description": "Time in minutes needed to remediate"
+        },
+        {
+          "name": "frequency",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e Monthly, Daily or Weekly"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "local_time",
+          "type": "bool",
+          "location": "body",
+          "description": "Local time"
+        },
+        {
+          "name": "max_try_count",
+          "type": "int",
+          "location": "body",
+          "description": "Max try count"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "prompt_user",
+          "type": "bool",
+          "location": "body",
+          "description": "Prompt user"
+        },
+        {
+          "name": "scheduled_time",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003eA number between 0 to 23"
+        },
+        {
+          "name": "scripts",
+          "type": "array",
+          "location": "body",
+          "description": "Scripts"
+        },
+        {
+          "name": "timeout_seconds",
+          "type": "int",
+          "location": "body",
+          "description": "Timeout seconds"
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "maintenance_update-staged",
+      "description": "Updates a staged maintenance item. Optional: day, enabled, expected_remediation_time (plus 11 more).",
+      "method": "PUT",
+      "path": "/maintenance/staged",
+      "params": [
+        {
+          "name": "day",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e For Monthly: a number between 1 to 27,\u003cbr\u003e For Daily: do not set a..."
+        },
+        {
+          "name": "enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Enabled"
+        },
+        {
+          "name": "expected_remediation_time",
+          "type": "int",
+          "location": "body",
+          "description": "Time in minutes needed to remediate"
+        },
+        {
+          "name": "frequency",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e Monthly, Daily or Weekly"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "local_time",
+          "type": "bool",
+          "location": "body",
+          "description": "Local time"
+        },
+        {
+          "name": "max_try_count",
+          "type": "int",
+          "location": "body",
+          "description": "Max try count"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "prompt_user",
+          "type": "bool",
+          "location": "body",
+          "description": "Prompt user"
+        },
+        {
+          "name": "scheduled_time",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003eA number between 0 to 23"
+        },
+        {
+          "name": "scripts",
+          "type": "array",
+          "location": "body",
+          "description": "Scripts"
+        },
+        {
+          "name": "timeout_seconds",
+          "type": "int",
+          "location": "body",
+          "description": "Timeout seconds"
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "managed-app-configurations_create",
+      "description": "Requests to create managed app configuration for Apps \u0026 Books applications. Optional: asset_id, bundle_id, configuration (plus 1 more). Returns the new ManagedAppConfigurationsCreateResponse.",
+      "method": "POST",
+      "path": "/managed-app-configurations",
+      "params": [
+        {
+          "name": "asset_id",
+          "type": "string",
+          "location": "body",
+          "description": "Asset id"
+        },
+        {
+          "name": "bundle_id",
+          "type": "string",
+          "location": "body",
+          "description": "Bundle id"
+        },
+        {
+          "name": "configuration",
+          "type": "object",
+          "location": "body",
+          "description": "Configuration"
+        },
+        {
+          "name": "location_id",
+          "type": "string",
+          "location": "body",
+          "description": "Location id"
+        }
+      ]
+    },
+    {
+      "name": "managed-app-configurations_delete",
+      "description": "Requests to delete managed app configuration for Apps \u0026 Books applications. Required: location_id, bundle_id. Destructive.",
+      "method": "DELETE",
+      "path": "/managed-app-configurations",
+      "params": [
+        {
+          "name": "location_id",
+          "type": "string",
+          "location": "query",
+          "description": "Location ID",
+          "required": true
+        },
+        {
+          "name": "bundle_id",
+          "type": "string",
+          "location": "query",
+          "description": "Bundle ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "managed-app-configurations_list",
+      "description": "Gets managed app configuration for Apps \u0026 Books applications. Required: location_id, bundle_id. Returns the ManagedAppConfigurationsListResponse.",
+      "method": "GET",
+      "path": "/managed-app-configurations",
+      "params": [
+        {
+          "name": "location_id",
+          "type": "string",
+          "location": "query",
+          "description": "Location ID",
+          "required": true
+        },
+        {
+          "name": "bundle_id",
+          "type": "string",
+          "location": "query",
+          "description": "Bundle ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_create",
+      "description": "Paginated request that returns list of installed certificates by mdm devices. \u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "POST",
+      "path": "/mdm/certificates/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        }
+      ]
+    },
+    {
+      "name": "mdm_create-commands",
+      "description": "Send MDM command to restart a device. Required: agent_id. Returns the new MdmRestartDeviceResponse.",
+      "method": "POST",
+      "path": "/mdm/commands/device/restart",
+      "params": [
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "body",
+          "description": "Device agent id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_create-configurations",
+      "description": "Create MDM configuration profile. Required: payloads. Returns the new MdmCreateConfigurationsResponse.",
+      "method": "POST",
+      "path": "/mdm/configurations/profile",
+      "params": [
+        {
+          "name": "payloads",
+          "type": "array",
+          "location": "body",
+          "description": "Payloads",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_create-configurations-2",
+      "description": "Assign policies to manifest-based MDM configuration profile. Optional: groupId, policyIds.",
+      "method": "POST",
+      "path": "/mdm/configurations/profile/policies",
+      "params": [
+        {
+          "name": "groupId",
+          "type": "string",
+          "location": "body",
+          "description": "Payload group ID."
+        },
+        {
+          "name": "policyIds",
+          "type": "array",
+          "location": "body",
+          "description": "Policy IDs in which the MDM configuration profile wil be enrolled."
+        }
+      ]
+    },
+    {
+      "name": "mdm_create-configurations-3",
+      "description": "Confirm changes to manifest-based MDM configuration profile. Required: groupId. Returns the new MdmCreateConfigurations3Response.",
+      "method": "POST",
+      "path": "/mdm/configurations/profiles/stage",
+      "params": [
+        {
+          "name": "groupId",
+          "type": "string",
+          "location": "body",
+          "description": "Payload group ID.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_create-devices",
+      "description": "Deploys profile to list of devices and/or managed users. It is an atomic request meaning that if one error is encountered no profile will be deployed to any of the devices and/or managed users \u003cbr\u003e\u003cbr/\u003e\u003cb\u003ePermission Required: \u003c/b\u003e\u003col\u003e\u003cli\u003eView Devices\u003c/li\u003e\u003cli\u003eExecute commands\u003c/li\u003e\u003c/ol\u003e.",
+      "method": "POST",
+      "path": "/mdm/devices/profile/deploy",
+      "params": [
+        {
+          "name": "devices_user_ids",
+          "type": "object",
+          "location": "body",
+          "description": "Devices user ids"
+        },
+        {
+          "name": "devices_uuid",
+          "type": "array",
+          "location": "body",
+          "description": "Devices uuid"
+        },
+        {
+          "name": "payloads_group_id",
+          "type": "string",
+          "location": "body",
+          "description": "Payloads group id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_create-profiles",
+      "description": "Get MDM profiles assigned to policies. Optional: page, per_page. Returns array of MdmProfilesPoliciesResponse.",
+      "method": "POST",
+      "path": "/mdm/profiles/policies",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        }
+      ]
+    },
+    {
+      "name": "mdm_delete",
+      "description": "This command allows the server to delete a user that has an active account on the device. Please provide the device agent ID or the device uuid. Required: username, force_deletion (default: false). Optional: device_uuid, agent_id. Returns the MdmCommandResponse. Destructive.",
+      "method": "DELETE",
+      "path": "/mdm/commands/device-user",
+      "params": [
+        {
+          "name": "device_uuid",
+          "type": "string",
+          "location": "query",
+          "description": "Device UUID"
+        },
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "query",
+          "description": "AgentID"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "location": "query",
+          "description": "Username",
+          "required": true
+        },
+        {
+          "name": "force_deletion",
+          "type": "bool",
+          "location": "query",
+          "description": "Force Deletion",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_delete-configurations",
+      "description": "Unassign an MDM profile from policies. Optional: groupId, policyIds. Destructive.",
+      "method": "DELETE",
+      "path": "/mdm/configurations/profile/policies",
+      "params": [
+        {
+          "name": "groupId",
+          "type": "string",
+          "location": "body",
+          "description": "Payload group ID."
+        },
+        {
+          "name": "policyIds",
+          "type": "array",
+          "location": "body",
+          "description": "Policy IDs in which the MDM configuration profile wil be enrolled."
+        }
+      ]
+    },
+    {
+      "name": "mdm_delete-configurations-2",
+      "description": "Delete manifest-based MDM configuration profile. Required: payload_group_id. Destructive.",
+      "method": "DELETE",
+      "path": "/mdm/configurations/profile/{payload_group_id}",
+      "params": [
+        {
+          "name": "payload_group_id",
+          "type": "string",
+          "location": "path",
+          "description": "MDM payload group ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_get",
+      "description": "Get MDM device details including enrollment profile, APN certificate and last response. Required: device_uuid. Returns the MdmDeviceDetails.",
+      "method": "GET",
+      "path": "/mdm/devices/{device_uuid}",
+      "params": [
+        {
+          "name": "device_uuid",
+          "type": "string",
+          "location": "path",
+          "description": "Device UUID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_get-configurations",
+      "description": "Get MDM configuration profile definition. Required: addigy_payload_type. Returns the ConfigurationProfileDefinition.",
+      "method": "GET",
+      "path": "/mdm/configurations/definition/{addigy_payload_type}",
+      "params": [
+        {
+          "name": "addigy_payload_type",
+          "type": "string",
+          "location": "path",
+          "description": "Addigy payload type of MDM profile",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_get-configurations-2",
+      "description": "Get manifest-based MDM configuration profile. Required: payload_group_id. Returns the MdmConfigurationsMdmProfiles.",
+      "method": "GET",
+      "path": "/mdm/configurations/profile/{payload_group_id}",
+      "params": [
+        {
+          "name": "payload_group_id",
+          "type": "string",
+          "location": "path",
+          "description": "MDM payload group ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_get-devices",
+      "description": "Test MDM response. Required: device_uuid.",
+      "method": "GET",
+      "path": "/mdm/devices/{device_uuid}/test",
+      "params": [
+        {
+          "name": "device_uuid",
+          "type": "string",
+          "location": "path",
+          "description": "Device UUID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "mdm_list",
+      "description": "Get MDM profiles. Optional: payload_type. Returns array of MdmProfilesMdmListResponse.",
+      "method": "GET",
+      "path": "/mdm/profiles",
+      "params": [
+        {
+          "name": "payload_type",
+          "type": "string",
+          "location": "query",
+          "description": "payload type of mdm profile"
+        }
+      ]
+    },
+    {
+      "name": "mdm_list-commands",
+      "description": "Returns a list of known users that were given to Addigy via the Request User List command.Please provide the device agent id or the device uuid. Optional: agent_id, device_uuid.",
+      "method": "GET",
+      "path": "/mdm/commands/device-users/query",
+      "params": [
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "query",
+          "description": "Device AgentID"
+        },
+        {
+          "name": "device_uuid",
+          "type": "string",
+          "location": "query",
+          "description": "Device UUID"
+        }
+      ]
+    },
+    {
+      "name": "mdm_list-configurations",
+      "description": "Get MDM configuration profile definitions. Returns array of ConfigurationProfileDefinition.",
+      "method": "GET",
+      "path": "/mdm/configurations/definitions",
+      "params": []
+    },
+    {
+      "name": "mdm_list-configurations-2",
+      "description": "Get manifest-based MDM configuration profiles. Returns array of MdmConfigurationsMdmProfiles.",
+      "method": "GET",
+      "path": "/mdm/configurations/profiles",
+      "params": []
+    },
+    {
+      "name": "mdm_list-configurations-3",
+      "description": "Get policy profiles by Addigy payload type. Optional: policy_id, payload_type. Returns array of MdmConfigurationsMdmProfiles.",
+      "method": "GET",
+      "path": "/mdm/configurations/policy/profiles",
+      "params": [
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "policy where the profile is installed"
+        },
+        {
+          "name": "payload_type",
+          "type": "string",
+          "location": "query",
+          "description": "payload type of mdm profile"
+        }
+      ]
+    },
+    {
+      "name": "mdm_update",
+      "description": "Update an MDM configuration profile. Required: payloads. Returns the updated MdmUpdateResponse.",
+      "method": "PUT",
+      "path": "/mdm/configurations/profiles/stage",
+      "params": [
+        {
+          "name": "payloads",
+          "type": "array",
+          "location": "body",
+          "description": "Payloads",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "monitoring_create",
+      "description": "Create a monitoring item. Optional: category, emails, fact_identifier (plus 15 more). Returns the new CreateResponse.",
+      "method": "POST",
+      "path": "/monitoring",
+      "params": [
+        {
+          "name": "category",
+          "type": "string",
+          "location": "body",
+          "description": "Category"
+        },
+        {
+          "name": "emails",
+          "type": "array",
+          "location": "body",
+          "description": "Emails"
+        },
+        {
+          "name": "fact_identifier",
+          "type": "string",
+          "location": "body",
+          "description": "Identifier of the Fact: Custom or Addigy"
+        },
+        {
+          "name": "has_script",
+          "type": "bool",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003eTrue if a saved script will be used.\u003cbr\u003e False if a manual script will be indicated"
+        },
+        {
+          "name": "instructions",
+          "type": "array",
+          "location": "body",
+          "description": "Manual script to remediate the issue (has_script=false)."
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "level",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e warning or critical"
+        },
+        {
+          "name": "max_value",
+          "type": "float",
+          "location": "body",
+          "description": "Must be used when selector is between"
+        },
+        {
+          "name": "min_value",
+          "type": "float",
+          "location": "body",
+          "description": "Must be used when selector is between"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "remediation_enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Remediation enabled"
+        },
+        {
+          "name": "remediation_time",
+          "type": "int",
+          "location": "body",
+          "description": "Remediation time"
+        },
+        {
+          "name": "script_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the script used to remediate"
+        },
+        {
+          "name": "selector",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e number: \u003e, \u003e=, \u003c, \u003c=,between, changed,\u003cbr\u003e string/date: \u003e, \u003e=, \u003c, \u003c=,between, contains, no contain, changed, \u003cbr\u003eboolean: =, changed, \u003cbr\u003elist: contains, not contain, changed."
+        },
+        {
+          "name": "send_ticket",
+          "type": "bool",
+          "location": "body",
+          "description": "Send ticket"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "location": "body",
+          "description": "Value(s) to compare the fact with."
+        },
+        {
+          "name": "value_type",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e number, string, date, boolean, list."
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "monitoring_create-policy",
+      "description": "Assign monitoring item to policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Monitoring.",
+      "method": "POST",
+      "path": "/monitoring/policy",
+      "params": [
+        {
+          "name": "alert_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the monitoring item.",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the policy id to assign the monitoring item to.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "monitoring_create-query",
+      "description": "Get a list of monitoring items for an organization. Optional: page, per_page, query (plus 2 more). Returns the new MonitoringCreateQueryResponse.",
+      "method": "POST",
+      "path": "/monitoring/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "monitoring_delete",
+      "description": "Delete a monitoring item.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Custom Monitoring. Destructive.",
+      "method": "DELETE",
+      "path": "/monitoring",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Monitoring item id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "monitoring_delete-policy",
+      "description": "Unassign a monitoring item from policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Monitoring. Destructive.",
+      "method": "DELETE",
+      "path": "/monitoring/policy",
+      "params": [
+        {
+          "name": "alert_id",
+          "type": "string",
+          "location": "query",
+          "description": "Id of the monitoring item.",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Id of the policy.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "monitoring_list",
+      "description": "Get list of received alerts for the organization. Required: status (default: All), page (default: 1), per_page (default: 10). Returns the MonitoringReceivedAlertsResponse.",
+      "method": "GET",
+      "path": "/monitoring/received-alerts",
+      "params": [
+        {
+          "name": "status",
+          "type": "string",
+          "location": "query",
+          "description": "Addigy Alert Status",
+          "required": true
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "query",
+          "description": "Requested Page",
+          "required": true
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "query",
+          "description": "Number of items in the response.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "monitoring_update",
+      "description": "Update a monitoring item. Optional: category, emails, fact (plus 17 more).",
+      "method": "PUT",
+      "path": "/monitoring",
+      "params": [
+        {
+          "name": "category",
+          "type": "string",
+          "location": "body",
+          "description": "Category"
+        },
+        {
+          "name": "emails",
+          "type": "array",
+          "location": "body",
+          "description": "Emails"
+        },
+        {
+          "name": "fact",
+          "type": "string",
+          "location": "body",
+          "description": "Fact Name"
+        },
+        {
+          "name": "fact_identifier",
+          "type": "string",
+          "location": "body",
+          "description": "Identifier of the Fact: Custom or Addigy"
+        },
+        {
+          "name": "has_script",
+          "type": "bool",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003eTrue if a saved script will be used.\u003cbr\u003e False if a manual script will be indicated"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id for the monitoring item to update"
+        },
+        {
+          "name": "instructions",
+          "type": "array",
+          "location": "body",
+          "description": "Manual script to remediate the issue (has_script=false)."
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "level",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e warning or critical"
+        },
+        {
+          "name": "max_value",
+          "type": "float",
+          "location": "body",
+          "description": "Must be used when selector is between"
+        },
+        {
+          "name": "min_value",
+          "type": "float",
+          "location": "body",
+          "description": "Must be used when selector is between"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "remediation_enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Remediation enabled"
+        },
+        {
+          "name": "remediation_time",
+          "type": "int",
+          "location": "body",
+          "description": "Remediation time"
+        },
+        {
+          "name": "script_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the script used to remediate"
+        },
+        {
+          "name": "selector",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e number: \u003e, \u003e=, \u003c, \u003c=,between, changed,\u003cbr\u003e string/date: \u003e, \u003e=, \u003c, \u003c=,between, contains, no contain, changed, \u003cbr\u003eboolean: =, changed, \u003cbr\u003elist: contains, not contain, changed."
+        },
+        {
+          "name": "send_ticket",
+          "type": "bool",
+          "location": "body",
+          "description": "Send ticket"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "location": "body",
+          "description": "Value(s) to compare the fact with."
+        },
+        {
+          "name": "value_type",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e number, string, date, boolean, list."
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "o_create",
+      "description": "Request additional Azure Conditional Access Connectors for their organization.",
+      "method": "POST",
+      "path": "/o/integrations/azure-ca/tenants/expand-request",
+      "params": []
+    },
+    {
+      "name": "o_benchmarks_create",
+      "description": "Create a benchmark asset. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Benchmark.",
+      "method": "POST",
+      "path": "/o/{organization_id}/benchmarks",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "compliance_rules_ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of compliance rule ids"
+        },
+        {
+          "name": "maximum_os_version",
+          "type": "string",
+          "location": "body",
+          "description": "Maximum os version"
+        },
+        {
+          "name": "minimum_os_version",
+          "type": "string",
+          "location": "body",
+          "description": "Minimum os version"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "target_os",
+          "type": "string",
+          "location": "body",
+          "description": "Target os"
+        }
+      ]
+    },
+    {
+      "name": "o_benchmarks_create-o",
+      "description": "Clone a pre built benchmark. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Benchmark.",
+      "method": "POST",
+      "path": "/o/{organization_id}/benchmarks/pre-built/clone",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "benchmark_id",
+          "type": "string",
+          "location": "body",
+          "description": "The id of the benchmark to clone."
+        },
+        {
+          "name": "compliance_rules_ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of compliance rule ids"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "The name for the new cloned benchmark."
+        }
+      ]
+    },
+    {
+      "name": "o_benchmarks_delete",
+      "description": "Delete a benchmark asset.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Benchmark. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/benchmarks",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Benchmark id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_benchmarks_update",
+      "description": "Update a benchmark asset. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Benchmark.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/benchmarks",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "compliance_rules_ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of compliance rule ids"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "maximum_os_version",
+          "type": "string",
+          "location": "body",
+          "description": "Maximum os version"
+        },
+        {
+          "name": "minimum_os_version",
+          "type": "string",
+          "location": "body",
+          "description": "Minimum os version"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "target_os",
+          "type": "string",
+          "location": "body",
+          "description": "Target os"
+        }
+      ]
+    },
+    {
+      "name": "o_billing_create",
+      "description": "Send email to billing contact. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "POST",
+      "path": "/o/{organization_id}/billing/contact",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "location": "body",
+          "description": "Message"
+        },
+        {
+          "name": "user_email",
+          "type": "string",
+          "location": "body",
+          "description": "User email"
+        }
+      ]
+    },
+    {
+      "name": "o_billing_delete",
+      "description": "Delete a card.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing. Edit Billing. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/billing/cards",
+      "params": [
+        {
+          "name": "card_id",
+          "type": "string",
+          "location": "query",
+          "description": "Card id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_get",
+      "description": "Get billing account. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "GET",
+      "path": "/o/{organization_id}/billing/account",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_get-o",
+      "description": "Get list of cards.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "GET",
+      "path": "/o/{organization_id}/billing/cards",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_get-o-2",
+      "description": "Get billing data. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "GET",
+      "path": "/o/{organization_id}/billing/data",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_get-o-3",
+      "description": "Get billing invoices. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "GET",
+      "path": "/o/{organization_id}/billing/invoices",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_get-o-4",
+      "description": "Get billing legacy invoices. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "GET",
+      "path": "/o/{organization_id}/billing/invoices/legacy",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_get-o-5",
+      "description": "Get billing invoice. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
+      "method": "GET",
+      "path": "/o/{organization_id}/billing/invoices/legacy/{id}",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Invoice id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_billing_update",
+      "description": "Update a card. The card_id is requires. All other fields are optional. Include just the fields you want to update \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing. Edit Billing.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/billing/cards",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "address_city",
+          "type": "string",
+          "location": "body",
+          "description": "Address city"
+        },
+        {
+          "name": "address_country",
+          "type": "string",
+          "location": "body",
+          "description": "Address country"
+        },
+        {
+          "name": "address_line1",
+          "type": "string",
+          "location": "body",
+          "description": "Address line1"
+        },
+        {
+          "name": "address_line2",
+          "type": "string",
+          "location": "body",
+          "description": "Address line2"
+        },
+        {
+          "name": "address_state",
+          "type": "string",
+          "location": "body",
+          "description": "Address state"
+        },
+        {
+          "name": "address_zip",
+          "type": "string",
+          "location": "body",
+          "description": "Address zip"
+        },
+        {
+          "name": "card_id",
+          "type": "string",
+          "location": "body",
+          "description": "Card id"
+        },
+        {
+          "name": "exp_month",
+          "type": "int",
+          "location": "body",
+          "description": "Exp month"
+        },
+        {
+          "name": "exp_year",
+          "type": "int",
+          "location": "body",
+          "description": "Exp year"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        }
+      ]
+    },
+    {
+      "name": "o_billing_update-o",
+      "description": "Set a default card. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing. Edit Billing.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/billing/cards/default",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "card_id",
+          "type": "string",
+          "location": "body",
+          "description": "Card id"
+        }
+      ]
+    },
+    {
+      "name": "o_children_get",
+      "description": "Get a list of child organizations belonging to the provided organization. Required: organization_id. Optional: page (default: 1), per_page (default: 50), sort_field (default: companyName) (plus 3 more). Returns the OrganizationEntitiesChildrenResponse.",
+      "method": "GET",
+      "path": "/o/{organization_id}/children/query",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Parent organization id to check for child organizations",
+          "required": true
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "query",
+          "description": "Requested Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "query",
+          "description": "Number of items in the response."
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "query",
+          "description": "Field used for sorting"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "query",
+          "description": "Sort Direction"
+        },
+        {
+          "name": "search_string",
+          "type": "string",
+          "location": "query",
+          "description": "Search string for organization name"
+        },
+        {
+          "name": "child_organization_id",
+          "type": "string",
+          "location": "query",
+          "description": "Filter result by orgid for specific child organization"
+        }
+      ]
+    },
+    {
+      "name": "o_community_create",
+      "description": "Report a community fact or command to Addigy for review. Required: organization_id. Optional: id, report_reason.",
+      "method": "POST",
+      "path": "/o/{organization_id}/community/report",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "report_reason",
+          "type": "string",
+          "location": "body",
+          "description": "Report reason"
+        }
+      ]
+    },
+    {
+      "name": "o_compliance-rules_create",
+      "description": "Create a compliance rule. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Benchmark.",
+      "method": "POST",
+      "path": "/o/{organization_id}/compliance-rules",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "agent_remediation_script_id",
+          "type": "string",
+          "location": "body",
+          "description": "Agent remediation script id"
+        },
+        {
+          "name": "filter_sets",
+          "type": "array",
+          "location": "body",
+          "description": "Filter sets"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "remediation_enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Remediation enabled"
+        }
+      ]
+    },
+    {
+      "name": "o_compliance-rules_delete",
+      "description": "Delete a compliance rule.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Benchmark. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/compliance-rules",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Compliance rule id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_compliance-rules_get",
+      "description": "Get compliance rules using script. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "method": "GET",
+      "path": "/o/{organization_id}/compliance-rules/scripts",
+      "params": [
+        {
+          "name": "agent_remediation_script_id",
+          "type": "string",
+          "location": "query",
+          "description": "Script id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_compliance-rules_update",
+      "description": "Update a compliance rule. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Benchmark.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/compliance-rules",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "agent_remediation_script_id",
+          "type": "string",
+          "location": "body",
+          "description": "Agent remediation script id"
+        },
+        {
+          "name": "filter_sets",
+          "type": "array",
+          "location": "body",
+          "description": "Filter sets"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "remediation_enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Remediation enabled"
+        }
+      ]
+    },
+    {
+      "name": "o_ddm-updates_get",
+      "description": "Gets device active ddm system updates declaration.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView devices.",
+      "method": "GET",
+      "path": "/o/{organization_id}/ddm-updates/devices/declarations/active",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "query",
+          "description": "Device UDID",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_device_get",
+      "description": "Get device compliance statuses per benchmark.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView devices.",
+      "method": "GET",
+      "path": "/o/{organization_id}/device/compliance/benchmark/status",
+      "params": [
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "query",
+          "description": "Agent id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_devices_create",
+      "description": "Get list of device filters based on users text prompt explaining what they need. Required: organization_id. Optional: prompt_text. Returns the new DevicesCreateResponse.",
+      "method": "POST",
+      "path": "/o/{organization_id}/devices/filters/prompt",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "prompt_text",
+          "type": "string",
+          "location": "body",
+          "description": "Prompt text"
+        }
+      ]
+    },
+    {
+      "name": "o_homescreen_create",
+      "description": "Create a policy home screen layout. Required: organization_id. Optional: assigned, device_type, dock (plus 2 more). Returns the new HomescreenResponse.",
+      "method": "POST",
+      "path": "/o/{organization_id}/homescreen",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "assigned",
+          "type": "bool",
+          "location": "body",
+          "description": "Assigned"
+        },
+        {
+          "name": "device_type",
+          "type": "string",
+          "location": "body",
+          "description": "Device type"
+        },
+        {
+          "name": "dock",
+          "type": "array",
+          "location": "body",
+          "description": "Dock"
+        },
+        {
+          "name": "pages",
+          "type": "array",
+          "location": "body",
+          "description": "Pages"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_homescreen_create-o",
+      "description": "Set the policy assignment status for a home screen layout. Required: organization_id. Optional: assigned, policy_id.",
+      "method": "POST",
+      "path": "/o/{organization_id}/homescreen/assigned",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "assigned",
+          "type": "bool",
+          "location": "body",
+          "description": "Assigned"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_homescreen_delete",
+      "description": "Delete a policy home screen layout. Required: organization_id, policy_id. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/homescreen",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_identity_update",
+      "description": "Stores an identity configuration assigned to a policy. Required: organization_id. Optional: addigy_sync, id, policy_id. Returns the updated PolicyIdentity.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/identity/configurations/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "addigy_sync",
+          "type": "object",
+          "location": "body",
+          "description": "Addigy sync"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_create",
+      "description": "Enable MalwareBytes OneView integration. Create new account. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Integration.",
+      "method": "POST",
+      "path": "/o/{organization_id}/integrations/mbov",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "billing_city",
+          "type": "string",
+          "location": "body",
+          "description": "Billing city"
+        },
+        {
+          "name": "billing_country",
+          "type": "string",
+          "location": "body",
+          "description": "Billing country"
+        },
+        {
+          "name": "billing_state",
+          "type": "string",
+          "location": "body",
+          "description": "Billing state"
+        },
+        {
+          "name": "billing_street",
+          "type": "string",
+          "location": "body",
+          "description": "Billing street"
+        },
+        {
+          "name": "billing_zip_code",
+          "type": "string",
+          "location": "body",
+          "description": "Billing zip code"
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "location": "body",
+          "description": "Email"
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_create-o",
+      "description": "Enable MalwareBytes OneView integration. Sync with an existing account. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Integration.",
+      "method": "POST",
+      "path": "/o/{organization_id}/integrations/mbov/sync",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "client_id",
+          "type": "string",
+          "location": "body",
+          "description": "Client id"
+        },
+        {
+          "name": "client_secret",
+          "type": "string",
+          "location": "body",
+          "description": "Client secret"
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_create-o-2",
+      "description": "Sync policy devices with Autotask configurations. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Integration.",
+      "method": "POST",
+      "path": "/o/{organization_id}/integrations/autotask/policy/device/sync",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_create-o-3",
+      "description": "Sync policy devices with ConnectWise configurations. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Integration.",
+      "method": "POST",
+      "path": "/o/{organization_id}/integrations/connectwise/policy/device/sync",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_delete",
+      "description": "Enable MalwareBytes OneView integration.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Integration. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/integrations/mbov",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_get",
+      "description": "Get MalwareBytes OneView sites for the organization. Required: organization_id. Returns the IntegrationsGetResponse.",
+      "method": "GET",
+      "path": "/o/{organization_id}/integrations/mbov/sites",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_get-o",
+      "description": "Get MalwareBytes OneView account status. Required: organization_id. Returns the MbovAccountStatus.",
+      "method": "GET",
+      "path": "/o/{organization_id}/integrations/mbov/account/status",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_integrations_get-o-2",
+      "description": "Get MalwareBytes OneView account catalog usage. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEnable Integration. Install MBBR'.",
+      "method": "GET",
+      "path": "/o/{organization_id}/integrations/mbov/account/usage",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "location": "query",
+          "description": "Start Date",
+          "required": true
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "location": "query",
+          "description": "End Date",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_mdm_create",
+      "description": "Query MDM Payload information and assignments. Required: organization_id. Optional: excluded_payload_group_ids, payload_group_ids. Returns the new ManifestBasedMdmProfilesResponse.",
+      "method": "POST",
+      "path": "/o/{organization_id}/mdm/payloads/query",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "excluded_payload_group_ids",
+          "type": "array",
+          "location": "body",
+          "description": "\u003cb\u003eOptional\u003c/b\u003e Array of specific payload IDs to exclude information about. Without this field, all payloads will be returned."
+        },
+        {
+          "name": "payload_group_ids",
+          "type": "array",
+          "location": "body",
+          "description": "\u003cb\u003eOptional\u003c/b\u003e Array of specific payload IDs to return information about. Without this field, all payloads will be returned."
+        }
+      ]
+    },
+    {
+      "name": "o_mdm_create-o",
+      "description": "Install MDM enrollment profile via mdm if available or via agent for macOS devices. Required: organization_id. Optional: udid.",
+      "method": "POST",
+      "path": "/o/{organization_id}/mdm/enrollment/profile/install",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "udid",
+          "type": "string",
+          "location": "body",
+          "description": "\u003cb\u003eRequired\u003c/b\u003e Device udid."
+        }
+      ]
+    },
+    {
+      "name": "o_monitoring_create",
+      "description": "Create a staged alert. Required: organization_id. Optional: id.",
+      "method": "POST",
+      "path": "/o/{organization_id}/monitoring/stage",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        }
+      ]
+    },
+    {
+      "name": "o_monitoring_create-o",
+      "description": "Confirm a staged alert. Copies changes into actual alert. Required: organization_id. Optional: id.",
+      "method": "POST",
+      "path": "/o/{organization_id}/monitoring/stage/confirm",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        }
+      ]
+    },
+    {
+      "name": "o_monitoring_delete",
+      "description": "Delete a staged alert. Required: organization_id, id. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/monitoring/stage",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Staged alert ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_monitoring_update",
+      "description": "Update a staged alert. Required: organization_id. Optional: category, emails, fact (plus 22 more).",
+      "method": "PUT",
+      "path": "/o/{organization_id}/monitoring/stage",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "location": "body",
+          "description": "Category"
+        },
+        {
+          "name": "emails",
+          "type": "array",
+          "location": "body",
+          "description": "Emails"
+        },
+        {
+          "name": "fact",
+          "type": "string",
+          "location": "body",
+          "description": "Fact"
+        },
+        {
+          "name": "fact_identifier",
+          "type": "string",
+          "location": "body",
+          "description": "Fact identifier"
+        },
+        {
+          "name": "has_script",
+          "type": "bool",
+          "location": "body",
+          "description": "Has script"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "instructions",
+          "type": "array",
+          "location": "body",
+          "description": "Instructions"
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "level",
+          "type": "string",
+          "location": "body",
+          "description": "Level"
+        },
+        {
+          "name": "max_value",
+          "type": "float",
+          "location": "body",
+          "description": "Max value"
+        },
+        {
+          "name": "min_value",
+          "type": "float",
+          "location": "body",
+          "description": "Min value"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "policy_restricted",
+          "type": "bool",
+          "location": "body",
+          "description": "Policy restricted"
+        },
+        {
+          "name": "provider",
+          "type": "string",
+          "location": "body",
+          "description": "Provider"
+        },
+        {
+          "name": "remediation_enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Remediation enabled"
+        },
+        {
+          "name": "remediation_time",
+          "type": "int",
+          "location": "body",
+          "description": "Remediation time"
+        },
+        {
+          "name": "script",
+          "type": "array",
+          "location": "body",
+          "description": "Script"
+        },
+        {
+          "name": "script_id",
+          "type": "string",
+          "location": "body",
+          "description": "Script id"
+        },
+        {
+          "name": "selector",
+          "type": "string",
+          "location": "body",
+          "description": "Selector"
+        },
+        {
+          "name": "send_ticket",
+          "type": "bool",
+          "location": "body",
+          "description": "Send ticket"
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "location": "body",
+          "description": "Source"
+        },
+        {
+          "name": "source_id",
+          "type": "string",
+          "location": "body",
+          "description": "Source id"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "location": "body",
+          "description": "Value"
+        },
+        {
+          "name": "value_type",
+          "type": "object",
+          "location": "body",
+          "description": "Value type"
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "o_policies_create",
+      "description": "Create a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Policy.",
+      "method": "POST",
+      "path": "/o/{organization_id}/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "location": "body",
+          "description": "hexcolor e.g: #000000"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "location": "body",
+          "description": "One of the following 'fa fa-user' 'fa fa-users' 'fa fa-trophy' 'fa fa-university' 'fa fa-database' 'fa fa-desktop' 'fa fa-building-o' 'fa fa-lock' 'fa fa-dog' 'fa fa-mobile' 'fa fa-wrench' 'fa fa-user-graduate' 'fa fa-cog' 'fa fa-laptop' 'fa fa-box-open' 'fa fa-globe-americas'"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "parent_policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Parent policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_policies_create-o",
+      "description": "Add assignment rule to policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eAutomatic Policy Assignments.",
+      "method": "POST",
+      "path": "/o/{organization_id}/policies/rule",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "auto_remove",
+          "type": "bool",
+          "location": "body",
+          "description": "Unassign devices that no longer matches filter set. Manually assigned devices will also be removed"
+        },
+        {
+          "name": "disabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Status for the auto assignment rule."
+        },
+        {
+          "name": "filters",
+          "type": "array",
+          "location": "body",
+          "description": "Filters"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id for the rule assignment."
+        }
+      ]
+    },
+    {
+      "name": "o_policies_delete",
+      "description": "Delete a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Policy. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policies_delete-o",
+      "description": "Delete a policy parent. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/policies/parent",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policies_delete-o-2",
+      "description": "Remove assignment rule from policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eAutomatic Policy Assignments. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/policies/rule",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        },
+        {
+          "name": "rule_id",
+          "type": "string",
+          "location": "query",
+          "description": "Rule id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policies_get",
+      "description": "Get policy assignment rules. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003e.Automatic Policy Assignments.",
+      "method": "GET",
+      "path": "/o/{organization_id}/policies/rule",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policies_update",
+      "description": "Update a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "location": "body",
+          "description": "hexcolor e.g: #000000"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "location": "body",
+          "description": "One of the following 'fa fa-user' 'fa fa-users' 'fa fa-trophy' 'fa fa-university' 'fa fa-database' 'fa fa-desktop' 'fa fa-building-o' 'fa fa-lock' 'fa fa-dog' 'fa fa-mobile' 'fa fa-wrench' 'fa fa-user-graduate' 'fa fa-cog' 'fa fa-laptop' 'fa fa-box-open' 'fa fa-globe-americas'"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_policies_update-o",
+      "description": "Update a policy parent. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/policies/parent",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "parent_policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Parent policy id"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_policy_create",
+      "description": "Assign a MalwareBytes OneView site to a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "method": "POST",
+      "path": "/o/{organization_id}/policy/mbov-sites",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "mbov_site_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the MalwareBytes OneView site.",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the policy.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policy_create-o",
+      "description": "Assign a benchmark to a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Benchmarks.",
+      "method": "POST",
+      "path": "/o/{organization_id}/policy/assets/benchmarks",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "benchmark_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the benchmark.",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Id of the policy.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policy_delete",
+      "description": "Remove a MalwareBytes OneView site from a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/policy/mbov-sites",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policy_delete-o",
+      "description": "Remove a benchmark from a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Benchmarks. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/policy/assets/benchmarks",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "benchmark_id",
+          "type": "string",
+          "location": "query",
+          "description": "Benchmark id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_policy_get",
+      "description": "Get MalwareBytes OneView policy sites. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "method": "GET",
+      "path": "/o/{organization_id}/policy/mbov-sites",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "o_prebuilt-apps_create",
+      "description": "Create a prebuilt app configuration and assign it to one or more policies. Required: organization_id. Optional: auto_update, policy_ids, prebuilt_app_id (plus 3 more). Returns the new PrebuiltAppsConfiguration.",
+      "method": "POST",
+      "path": "/o/{organization_id}/prebuilt-apps/configurations",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "auto_update",
+          "type": "bool",
+          "location": "body",
+          "description": "Whether to auto update the configuration"
+        },
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Policy IDs to apply to the configuration to"
+        },
+        {
+          "name": "prebuilt_app_id",
+          "type": "string",
+          "location": "body",
+          "description": "Prebuilt App ID to create the configuration for"
+        },
+        {
+          "name": "prebuilt_app_version_id",
+          "type": "string",
+          "location": "body",
+          "description": "Prebuilt App Version ID to create the configuration for"
+        },
+        {
+          "name": "run_removal_script",
+          "type": "bool",
+          "location": "body",
+          "description": "Whether to run the removal script"
+        },
+        {
+          "name": "user_deferral",
+          "type": "int",
+          "location": "body",
+          "description": "Number of days to defer the installation"
+        }
+      ]
+    },
+    {
+      "name": "o_prebuilt-apps_delete",
+      "description": "Delete a prebuilt app configuration, removing it from all assigned policies. Required: organization_id, id. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/prebuilt-apps/configurations/{id}",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Configuration ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_prebuilt-apps_delete-o",
+      "description": "Unassign a configuration from one or more policies. The configuration must belong to at least one policy. Required: organization_id, id. Optional: policy_ids. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/prebuilt-apps/configurations/{id}/assignment",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Configuration ID",
+          "required": true
+        },
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Policy IDs to apply to the configuration to"
+        }
+      ]
+    },
+    {
+      "name": "o_prebuilt-apps_update",
+      "description": "Update a prebuilt app configuration. Required: organization_id, id. Optional: auto_update, run_removal_script, user_deferral. Returns the updated PrebuiltAppsConfiguration.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/prebuilt-apps/configurations/{id}",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Configuration ID",
+          "required": true
+        },
+        {
+          "name": "auto_update",
+          "type": "bool",
+          "location": "body",
+          "description": "Whether to automatically update the app"
+        },
+        {
+          "name": "run_removal_script",
+          "type": "bool",
+          "location": "body",
+          "description": "Whether to run the removal script when the app is removed"
+        },
+        {
+          "name": "user_deferral",
+          "type": "int",
+          "location": "body",
+          "description": "Number of days to defer the installation"
+        }
+      ]
+    },
+    {
+      "name": "o_prebuilt-apps_update-o",
+      "description": "Assign a configuration to one or more policies. Required: organization_id, id. Optional: policy_ids. Returns the updated PrebuiltAppsConfiguration.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/prebuilt-apps/configurations/{id}/assignment",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Configuration ID",
+          "required": true
+        },
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Policy IDs to apply to the configuration to"
+        }
+      ]
+    },
+    {
+      "name": "o_reports_create",
+      "description": "Request a report. Only one report of each type can be requested at a time. Required: organization_id. Optional: email_settings, payload. Returns the new CreateResponse.",
+      "method": "POST",
+      "path": "/o/{organization_id}/reports",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "email_settings",
+          "type": "object",
+          "location": "body",
+          "description": "Email settings"
+        },
+        {
+          "name": "payload",
+          "type": "object",
+          "location": "body",
+          "description": "This field must match the report schema returned by 'Get a list of available reports' endpoint"
+        }
+      ]
+    },
+    {
+      "name": "o_scripts_delete",
+      "description": "Delete a script. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Predefined Commands. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/scripts",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Script id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_templates_create",
+      "description": "Create a policy with the assets associated to a template. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Policy.",
+      "method": "POST",
+      "path": "/o/{organization_id}/templates",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "assets",
+          "type": "array",
+          "location": "body",
+          "description": "List of assets to add into the new policy"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "location": "body",
+          "description": "Color"
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "location": "body",
+          "description": "Icon"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Id"
+        },
+        {
+          "name": "parent_id",
+          "type": "string",
+          "location": "body",
+          "description": "Parent id"
+        },
+        {
+          "name": "policy_name",
+          "type": "string",
+          "location": "body",
+          "description": "Policy name"
+        }
+      ]
+    },
+    {
+      "name": "o_templates_create-o",
+      "description": "Get a list of Templates. Required: organization_id. Optional: ids. Returns the new TemplateResponse.",
+      "method": "POST",
+      "path": "/o/{organization_id}/templates/query",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of ids to return"
+        }
+      ]
+    },
+    {
+      "name": "o_users_create",
+      "description": "Query for organization users. Required: organization_id. Optional: page, per_page, sort_direction (plus 1 more). Returns the new OrganizationUsersResponse.",
+      "method": "POST",
+      "path": "/o/{organization_id}/users/query",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "o_variables_create",
+      "description": "Create a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Variable.",
+      "method": "POST",
+      "path": "/o/{organization_id}/variables",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "default_value",
+          "type": "object",
+          "location": "body",
+          "description": "The default value of the variable."
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "location": "body",
+          "description": "The key of the variable. Cannot contain white spaces."
+        }
+      ]
+    },
+    {
+      "name": "o_variables_create-o",
+      "description": "Assign policy value to a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "method": "POST",
+      "path": "/o/{organization_id}/variables/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Key of the variable.",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "location": "body",
+          "description": "The value of the variable.",
+          "required": true
+        },
+        {
+          "name": "variable_key",
+          "type": "string",
+          "location": "body",
+          "description": "Key of the variable.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_variables_delete",
+      "description": "Delete a variable.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Variable. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/variables",
+      "params": [
+        {
+          "name": "key",
+          "type": "string",
+          "location": "query",
+          "description": "Variable key",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_variables_delete-o",
+      "description": "Remove policy value from a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/variables/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        },
+        {
+          "name": "variable_key",
+          "type": "string",
+          "location": "query",
+          "description": "Variable key",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_variables_get",
+      "description": "Get policy variable value. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "method": "GET",
+      "path": "/o/{organization_id}/variables/policies",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id"
+        },
+        {
+          "name": "variable_key",
+          "type": "string",
+          "location": "query",
+          "description": "Variable key"
+        }
+      ]
+    },
+    {
+      "name": "o_variables_get-o",
+      "description": "Get variable usage.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variable.",
+      "method": "GET",
+      "path": "/o/{organization_id}/variables/usage",
+      "params": [
+        {
+          "name": "variable_key",
+          "type": "string",
+          "location": "query",
+          "description": "Variable key",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_variables_get-o-2",
+      "description": "Get variable value.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variable.",
+      "method": "GET",
+      "path": "/o/{organization_id}/variables/value",
+      "params": [
+        {
+          "name": "variable_key",
+          "type": "string",
+          "location": "query",
+          "description": "Variable key",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_variables_get-o-3",
+      "description": "Get variable policy value.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variable.",
+      "method": "GET",
+      "path": "/o/{organization_id}/variables/policies/value",
+      "params": [
+        {
+          "name": "variable_key",
+          "type": "string",
+          "location": "query",
+          "description": "Variable key",
+          "required": true
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_variables_update",
+      "description": "Update a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Variable.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/variables",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "default_value",
+          "type": "object",
+          "location": "body",
+          "description": "Default value"
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "location": "body",
+          "description": "Key"
+        }
+      ]
+    },
+    {
+      "name": "o_webhooks_create",
+      "description": "Create a webhook. Required: organization_id. Optional: action, name, trigger. Returns the new Webhook.",
+      "method": "POST",
+      "path": "/o/{organization_id}/webhooks",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "action",
+          "type": "object",
+          "location": "body",
+          "description": "The webhook action."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "The name of the webhook."
+        },
+        {
+          "name": "trigger",
+          "type": "object",
+          "location": "body",
+          "description": "The event trigger for the webhook."
+        }
+      ]
+    },
+    {
+      "name": "o_webhooks_delete",
+      "description": "Delete a webhook. Required: id, organization_id. Destructive.",
+      "method": "DELETE",
+      "path": "/o/{organization_id}/webhooks",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Webhook id",
+          "required": true
+        },
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "o_webhooks_update",
+      "description": "Update a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Variable.",
+      "method": "PUT",
+      "path": "/o/{organization_id}/webhooks",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization id",
+          "required": true
+        },
+        {
+          "name": "action",
+          "type": "object",
+          "location": "body",
+          "description": "The webhook action."
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "The id of the webhook."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "The name of the webhook."
+        },
+        {
+          "name": "trigger",
+          "type": "object",
+          "location": "body",
+          "description": "The event trigger for the webhook."
+        }
+      ]
+    },
+    {
+      "name": "oa_create",
+      "description": "Get a list of benchmark assets for an organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "method": "POST",
+      "path": "/oa/benchmarks/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-ade",
+      "description": "Get a list of ade tokens assigned to policies. Optional: policy_ids. Returns array of PolicyAdeToken.",
+      "method": "POST",
+      "path": "/oa/ade/tokens/policies/query",
+      "params": [
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Filter by policies ids"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-appsandbooks",
+      "description": "Get a list of apps and books tokens assigned to policies. Optional: policy_ids. Returns array of PolicyAppsAndBooksToken.",
+      "method": "POST",
+      "path": "/oa/apps-and-books/tokens/policies/query",
+      "params": [
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Filter by policies ids"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-compliancerules",
+      "description": "Get a list of compliance rules for an organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "method": "POST",
+      "path": "/oa/compliance-rules/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-devices",
+      "description": "Get devices compliance status. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "POST",
+      "path": "/oa/devices/compliance/status/query",
+      "params": [
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "The list of agent ids to get the compliance status."
+        }
+      ]
+    },
+    {
+      "name": "oa_create-files",
+      "description": "Get a list of files for an organization. \u003cbr\u003e\u003cb\u003ePermission Required:\u003c/b\u003e View Files.",
+      "method": "POST",
+      "path": "/oa/files/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "search_term",
+          "type": "string",
+          "location": "body",
+          "description": "Search term"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-identity",
+      "description": "Get a list of identity configurations assigned to policies. Optional: ids, policy_ids. Returns the new OaCreateIdentityResponse.",
+      "method": "POST",
+      "path": "/oa/identity/configurations/policies/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "Filter by configurations ids"
+        },
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Filter by policies ids"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-installedapps",
+      "description": "Query installed apps from a device providing some agent IDs. \u003cbr\u003e\u003cb\u003ePermission Required:\u003c/b\u003e View Devices.",
+      "method": "POST",
+      "path": "/oa/installed-apps/mdm/query",
+      "params": [
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Agent ids"
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "location": "body",
+          "description": "Limit"
+        },
+        {
+          "name": "skip",
+          "type": "int",
+          "location": "body",
+          "description": "Skip"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-integrations",
+      "description": "Get Azure Conditional Access all accounts metadata. Optional: policy_ids. Returns the new OaCreateIntegrationsResponse.",
+      "method": "POST",
+      "path": "/oa/integrations/azure-ca/accounts/metadata/query",
+      "params": [
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Filter Azure Conditional Access accounts by policy ids. Organization level record is always returned if applicable."
+        }
+      ]
+    },
+    {
+      "name": "oa_create-monitoring",
+      "description": "Query for a list of scheduled alerts with pagination. Optional: excluded_ids, ids, limit (plus 4 more). Returns the new MonitoringQueryResponse.",
+      "method": "POST",
+      "path": "/oa/monitoring/query",
+      "params": [
+        {
+          "name": "excluded_ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of alert IDs to exclude"
+        },
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of alert IDs to include"
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "location": "body",
+          "description": "Maximum number of alerts to return"
+        },
+        {
+          "name": "name_contains",
+          "type": "string",
+          "location": "body",
+          "description": "String to search for in alert names"
+        },
+        {
+          "name": "skip",
+          "type": "int",
+          "location": "body",
+          "description": "Number of alerts to skip"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Direction to sort alerts by"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Field to sort alerts by"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-policies",
+      "description": "Query an organization for all policies or filter to get specific policy info. Optional: policies. Returns the new PolicyEntitiesPolicyResponse.",
+      "method": "POST",
+      "path": "/oa/policies/query",
+      "params": [
+        {
+          "name": "policies",
+          "type": "string",
+          "location": "body",
+          "description": "\u003cb\u003eOptional\u003c/b\u003e Array of specific Policy IDs to return information about. Without this field, all policies will be returned."
+        }
+      ]
+    },
+    {
+      "name": "oa_create-policies-2",
+      "description": "Gets a list of available assets for the provided location ID (token ID). Optional: device_family, location_ids, policy_ids. Returns the new SelfServiceLocationAssetsResponse.",
+      "method": "POST",
+      "path": "/oa/policies/self_service/location/assets/query",
+      "params": [
+        {
+          "name": "device_family",
+          "type": "string",
+          "location": "body",
+          "description": "Comma separated device families to filter by. If no value is provided then 'macOS,iOS,iPadOS' will be used."
+        },
+        {
+          "name": "location_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Location ids"
+        },
+        {
+          "name": "policy_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Policy ids"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-prebuiltapps",
+      "description": "Query Prebuilt Apps Configurations. Optional: ids, page (default: 1), per_page (default: 50) (plus 4 more). Returns the new PrebuiltAppsConfigurationsQueryResponse.",
+      "method": "POST",
+      "path": "/oa/prebuilt-apps/configurations/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "Ids"
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "prebuilt_app_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Prebuilt app ids"
+        },
+        {
+          "name": "prebuilt_app_version_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Prebuilt app version ids"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-reports",
+      "description": "Get report statuses. Optional: report_ids. Returns the new OaCreateReportsResponse.",
+      "method": "POST",
+      "path": "/oa/reports/status/query",
+      "params": [
+        {
+          "name": "report_ids",
+          "type": "array",
+          "location": "body",
+          "description": "The ids of the reports to get the statuses for."
+        }
+      ]
+    },
+    {
+      "name": "oa_create-variables",
+      "description": "Get a list of variables for an organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variables.",
+      "method": "POST",
+      "path": "/oa/variables/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-webhooks",
+      "description": "Get a list of webhooks. Optional: query. Returns the new OaCreateWebhooksResponse.",
+      "method": "POST",
+      "path": "/oa/webhooks/query",
+      "params": [
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-webhooks-2",
+      "description": "Get a count of webhooks schedule. Optional: query. Returns the new WebhooksScheduleCount.",
+      "method": "POST",
+      "path": "/oa/webhooks/schedule/count",
+      "params": [
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        }
+      ]
+    },
+    {
+      "name": "oa_create-webhooks-3",
+      "description": "Get a list of webhooks status. Optional: query. Returns the new OaCreateWebhooks3Response.",
+      "method": "POST",
+      "path": "/oa/webhooks/status/query",
+      "params": [
+        {
+          "name": "query",
+          "type": "object",
+          "location": "body",
+          "description": "Query"
+        }
+      ]
+    },
+    {
+      "name": "oa_list",
+      "description": "Get a policy home screen layout. Required: policy_id. Returns the HomescreenResponse.",
+      "method": "GET",
+      "path": "/oa/homescreen",
+      "params": [
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "oa_list-benchmarks",
+      "description": "Get pre-built benchmarks. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "method": "GET",
+      "path": "/oa/benchmarks/pre-built",
+      "params": []
+    },
+    {
+      "name": "oa_list-compliancerules",
+      "description": "Get pre-built compliance rules. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "method": "GET",
+      "path": "/oa/compliance-rules/pre-built",
+      "params": []
+    },
+    {
+      "name": "oa_list-compliancerules-2",
+      "description": "Get a compliance rule usage. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "method": "GET",
+      "path": "/oa/compliance-rules/usage",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Compliance rule id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "oa_list-integrations",
+      "description": "Get Azure Conditional Access unique enabled tenants metadata. Returns the OaListIntegrationsResponse.",
+      "method": "GET",
+      "path": "/oa/integrations/azure-ca/tenants/metadata",
+      "params": []
+    },
+    {
+      "name": "oa_list-reports",
+      "description": "Get a report. Required: report_id.",
+      "method": "GET",
+      "path": "/oa/reports",
+      "params": [
+        {
+          "name": "report_id",
+          "type": "string",
+          "location": "query",
+          "description": "Report Id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "oa_list-reports-2",
+      "description": "Get a list of available reports. Returns the OaListReports2Response.",
+      "method": "GET",
+      "path": "/oa/reports/available",
+      "params": []
+    },
+    {
+      "name": "oa_list-selfservice",
+      "description": "Get the self service configurations by OS for a policy. Required: policy_id. Returns the SelfServicePolicyAssignedInstructions.",
+      "method": "GET",
+      "path": "/oa/self-service/policy/assigned",
+      "params": [
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_create",
+      "description": "Create a Prebuilt App Version. Required: app_id, condition_script, files, install_script, remove_script, version. Optional: notification, profiles, published_date (plus 2 more). Returns the new PrebuiltAppsVersionsVersion.",
+      "method": "POST",
+      "path": "/prebuilt-apps/versions",
+      "params": [
+        {
+          "name": "app_id",
+          "type": "string",
+          "location": "body",
+          "description": "App id",
+          "required": true
+        },
+        {
+          "name": "condition_script",
+          "type": "string",
+          "location": "body",
+          "description": "Condition script",
+          "required": true
+        },
+        {
+          "name": "files",
+          "type": "array",
+          "location": "body",
+          "description": "Files",
+          "required": true
+        },
+        {
+          "name": "install_script",
+          "type": "string",
+          "location": "body",
+          "description": "Install script",
+          "required": true
+        },
+        {
+          "name": "notification",
+          "type": "string",
+          "location": "body",
+          "description": "Notification"
+        },
+        {
+          "name": "profiles",
+          "type": "array",
+          "location": "body",
+          "description": "Profiles"
+        },
+        {
+          "name": "published_date",
+          "type": "string",
+          "location": "body",
+          "description": "Published date"
+        },
+        {
+          "name": "release_notes_url",
+          "type": "string",
+          "location": "body",
+          "description": "Release notes url"
+        },
+        {
+          "name": "remove_script",
+          "type": "string",
+          "location": "body",
+          "description": "Remove script",
+          "required": true
+        },
+        {
+          "name": "variables",
+          "type": "object",
+          "location": "body",
+          "description": "Variables"
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "location": "body",
+          "description": "Version",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_create-prebuiltapps",
+      "description": "Create a prebuilt app. Optional: name, png_icon, search_path (plus 1 more). Returns the new PrebuiltAppsApp.",
+      "method": "POST",
+      "path": "/prebuilt-apps/apps/",
+      "params": [
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name of the app"
+        },
+        {
+          "name": "png_icon",
+          "type": "string",
+          "location": "body",
+          "description": "Path to the png icon for the app"
+        },
+        {
+          "name": "search_path",
+          "type": "string",
+          "location": "body",
+          "description": "Path of the app to be used by pgrep to decide if the app is open."
+        },
+        {
+          "name": "svg_icon",
+          "type": "string",
+          "location": "body",
+          "description": "Path to the svg icon for the app"
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_create-prebuiltapps-2",
+      "description": "Query the prebuilt app library. Optional: ids, name, page (plus 4 more). Returns the new PrebuiltAppsAppQueryResponse.",
+      "method": "POST",
+      "path": "/prebuilt-apps/apps/query",
+      "params": [
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "App IDs"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name search"
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Select the page of results to view"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Number of results per page"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Direction to sort the results"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Field to use to sort results"
+        },
+        {
+          "name": "version_id",
+          "type": "string",
+          "location": "body",
+          "description": "Find the app of a provided version ID"
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_create-prebuiltapps-3",
+      "description": "Query Prebuilt App Versions. Optional: app_ids, ids, page (default: 1) (plus 4 more). Returns the new PrebuiltAppsVersionsQueryResponse.",
+      "method": "POST",
+      "path": "/prebuilt-apps/versions/query",
+      "params": [
+        {
+          "name": "app_ids",
+          "type": "array",
+          "location": "body",
+          "description": "App ids"
+        },
+        {
+          "name": "ids",
+          "type": "array",
+          "location": "body",
+          "description": "Ids"
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Sort direction"
+        },
+        {
+          "name": "sort_field",
+          "type": "string",
+          "location": "body",
+          "description": "Sort field"
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_delete",
+      "description": "Delete a prebuilt app. Required: id. Destructive.",
+      "method": "DELETE",
+      "path": "/prebuilt-apps/apps/{id}",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "App ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_delete-prebuiltapps",
+      "description": "Delete a Prebuilt App Version. Required: id. Returns the PrebuiltAppsVersionsVersion. Destructive.",
+      "method": "DELETE",
+      "path": "/prebuilt-apps/versions/{id}",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Prebuilt App Version ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_get",
+      "description": "Get a prebuilt app. Required: id. Returns the PrebuiltAppsApp.",
+      "method": "GET",
+      "path": "/prebuilt-apps/apps/{id}",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "App ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_get-prebuiltapps",
+      "description": "Get a Prebuilt App Version. Required: id. Returns the PrebuiltAppsVersionsVersion.",
+      "method": "GET",
+      "path": "/prebuilt-apps/versions/{id}",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Prebuilt App Version ID",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_update",
+      "description": "Update a prebuilt app. Required: id. Optional: latest_id, png_icon, search_path (plus 2 more). Returns the updated PrebuiltAppsApp.",
+      "method": "PUT",
+      "path": "/prebuilt-apps/apps/{id}",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "App ID",
+          "required": true
+        },
+        {
+          "name": "latest_id",
+          "type": "string",
+          "location": "body",
+          "description": "ID of the latest version of the associated app"
+        },
+        {
+          "name": "png_icon",
+          "type": "string",
+          "location": "body",
+          "description": "Path to the png icon for the app"
+        },
+        {
+          "name": "search_path",
+          "type": "string",
+          "location": "body",
+          "description": "Path of the app to be used by pgrep to decide if the app is open."
+        },
+        {
+          "name": "svg_icon",
+          "type": "string",
+          "location": "body",
+          "description": "Path to the svg icon for the app"
+        },
+        {
+          "name": "version_ids",
+          "type": "array",
+          "location": "body",
+          "description": "List of version IDs of the app"
+        }
+      ]
+    },
+    {
+      "name": "prebuilt-apps_update-prebuiltapps",
+      "description": "Update a Prebuilt App Version. Required: id, app_id, condition_script, files, install_script, remove_script, version. Optional: notification, profiles, published_date (plus 2 more). Returns the updated PrebuiltAppsVersionsVersion.",
+      "method": "PUT",
+      "path": "/prebuilt-apps/versions/{id}",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "path",
+          "description": "Prebuilt App Version ID",
+          "required": true
+        },
+        {
+          "name": "app_id",
+          "type": "string",
+          "location": "body",
+          "description": "App id",
+          "required": true
+        },
+        {
+          "name": "condition_script",
+          "type": "string",
+          "location": "body",
+          "description": "Condition script",
+          "required": true
+        },
+        {
+          "name": "files",
+          "type": "array",
+          "location": "body",
+          "description": "Files",
+          "required": true
+        },
+        {
+          "name": "install_script",
+          "type": "string",
+          "location": "body",
+          "description": "Install script",
+          "required": true
+        },
+        {
+          "name": "notification",
+          "type": "string",
+          "location": "body",
+          "description": "Notification"
+        },
+        {
+          "name": "profiles",
+          "type": "array",
+          "location": "body",
+          "description": "Profiles"
+        },
+        {
+          "name": "published_date",
+          "type": "string",
+          "location": "body",
+          "description": "Published date"
+        },
+        {
+          "name": "release_notes_url",
+          "type": "string",
+          "location": "body",
+          "description": "Release notes url"
+        },
+        {
+          "name": "remove_script",
+          "type": "string",
+          "location": "body",
+          "description": "Remove script",
+          "required": true
+        },
+        {
+          "name": "variables",
+          "type": "object",
+          "location": "body",
+          "description": "Variables"
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "location": "body",
+          "description": "Version",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "self-service-configurations_create",
+      "description": "Creates a new self service configuration in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Instruction.",
+      "method": "POST",
+      "path": "/self-service-configurations",
+      "params": [
+        {
+          "name": "app_logo",
+          "type": "object",
+          "location": "body",
+          "description": "Data from file stored with file manager"
+        },
+        {
+          "name": "dock_icon",
+          "type": "object",
+          "location": "body",
+          "description": "Data from file stored with file manager"
+        },
+        {
+          "name": "filevault_prompt_text",
+          "type": "string",
+          "location": "body",
+          "description": "Filevault prompt text"
+        },
+        {
+          "name": "hide_chat",
+          "type": "bool",
+          "location": "body",
+          "description": "Hide chat"
+        },
+        {
+          "name": "home_screen_address",
+          "type": "string",
+          "location": "body",
+          "description": "Home screen address"
+        },
+        {
+          "name": "home_screen_company_name",
+          "type": "string",
+          "location": "body",
+          "description": "Home screen company name"
+        },
+        {
+          "name": "home_screen_configure_details",
+          "type": "bool",
+          "location": "body",
+          "description": "Home screen configure details"
+        },
+        {
+          "name": "home_screen_description",
+          "type": "string",
+          "location": "body",
+          "description": "Home screen description"
+        },
+        {
+          "name": "home_screen_email",
+          "type": "string",
+          "location": "body",
+          "description": "Home screen email"
+        },
+        {
+          "name": "home_screen_phone",
+          "type": "string",
+          "location": "body",
+          "description": "Home screen phone"
+        },
+        {
+          "name": "home_screen_show_address",
+          "type": "bool",
+          "location": "body",
+          "description": "Home screen show address"
+        },
+        {
+          "name": "home_screen_show_description",
+          "type": "bool",
+          "location": "body",
+          "description": "Home screen show description"
+        },
+        {
+          "name": "home_screen_show_email",
+          "type": "bool",
+          "location": "body",
+          "description": "Home screen show email"
+        },
+        {
+          "name": "home_screen_show_phone",
+          "type": "bool",
+          "location": "body",
+          "description": "Home screen show phone"
+        },
+        {
+          "name": "integration_intune_enabled",
+          "type": "bool",
+          "location": "body",
+          "description": "Integration intune enabled"
+        },
+        {
+          "name": "is_in_blueprint",
+          "type": "bool",
+          "location": "body",
+          "description": "Is in blueprint"
+        },
+        {
+          "name": "is_onboarding_config",
+          "type": "bool",
+          "location": "body",
+          "description": "Is onboarding config"
+        },
+        {
+          "name": "maintenance_prompt_text",
+          "type": "string",
+          "location": "body",
+          "description": "Maintenance prompt text"
+        },
+        {
+          "name": "menubar_icon",
+          "type": "object",
+          "location": "body",
+          "description": "Data from file stored with file manager"
+        },
+        {
+          "name": "ms_office_updates_prompt_text",
+          "type": "string",
+          "location": "body",
+          "description": "Ms office updates prompt text"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "os_type",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: \u003cbr\u003e macOS or iOS"
+        },
+        {
+          "name": "screenview_prompt_text",
+          "type": "string",
+          "location": "body",
+          "description": "Screenview prompt text"
+        },
+        {
+          "name": "show_dock_icon",
+          "type": "bool",
+          "location": "body",
+          "description": "Show dock icon"
+        },
+        {
+          "name": "show_in_applications",
+          "type": "bool",
+          "location": "body",
+          "description": "Show in applications"
+        },
+        {
+          "name": "show_menubar_icon",
+          "type": "bool",
+          "location": "body",
+          "description": "Show menubar icon"
+        },
+        {
+          "name": "show_support",
+          "type": "bool",
+          "location": "body",
+          "description": "Show support"
+        },
+        {
+          "name": "user_sentiment_prompt_text",
+          "type": "string",
+          "location": "body",
+          "description": "User sentiment prompt text"
+        },
+        {
+          "name": "version",
+          "type": "int",
+          "location": "body",
+          "description": "Version"
+        }
+      ]
+    },
+    {
+      "name": "static-fields_create",
+      "description": "Creates a new static field in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "POST",
+      "path": "/static-fields",
+      "params": [
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Static field name"
+        }
+      ]
+    },
+    {
+      "name": "static-fields_create-staticfields",
+      "description": "Assign static field values to device(s) in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "POST",
+      "path": "/static-fields/value",
+      "params": [
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Agent ids"
+        },
+        {
+          "name": "static_field_id",
+          "type": "string",
+          "location": "body",
+          "description": "Static field id"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "location": "body",
+          "description": "Value to set in the static field to the indicated devices"
+        }
+      ]
+    },
+    {
+      "name": "static-fields_delete",
+      "description": "Removes the static field from the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices. Destructive.",
+      "method": "DELETE",
+      "path": "/static-fields",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "query",
+          "description": "Static field id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "static-fields_list",
+      "description": "Gets a list of all static fields available for the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "GET",
+      "path": "/static-fields",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "query",
+          "description": "Requested Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "query",
+          "description": "Number of items in the response."
+        }
+      ]
+    },
+    {
+      "name": "static-fields_list-staticfields",
+      "description": "Gets a list of all static fields assigned to devices for the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "GET",
+      "path": "/static-fields/value",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "query",
+          "description": "Requested Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "query",
+          "description": "Number of items in the response."
+        }
+      ]
+    },
+    {
+      "name": "static-fields_update",
+      "description": "Updates the name of an existing static field in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "method": "PUT",
+      "path": "/static-fields",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "location": "body",
+          "description": "Static field id"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Static field name"
+        }
+      ]
+    },
+    {
+      "name": "system-events_create",
+      "description": "Allow to query for a set of system events. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Events.",
+      "method": "POST",
+      "path": "/system-events/query",
+      "params": [
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "query",
+          "type": "array",
+          "location": "body",
+          "description": "Query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: ['asc', 'desc']"
+        }
+      ]
+    },
+    {
+      "name": "system-events_create-systemevents",
+      "description": "Allow to search system events. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Events.",
+      "method": "POST",
+      "path": "/system-events/search",
+      "params": [
+        {
+          "name": "from_date_time",
+          "type": "string",
+          "location": "body",
+          "description": "Search start date"
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "location": "body",
+          "description": "Options"
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "location": "body",
+          "description": "Page"
+        },
+        {
+          "name": "per_page",
+          "type": "int",
+          "location": "body",
+          "description": "Per page"
+        },
+        {
+          "name": "queries",
+          "type": "array",
+          "location": "body",
+          "description": "The search results include the logical AND of the results of each query"
+        },
+        {
+          "name": "sort_direction",
+          "type": "string",
+          "location": "body",
+          "description": "Possible values: ['asc', 'desc']"
+        },
+        {
+          "name": "to_date_time",
+          "type": "string",
+          "location": "body",
+          "description": "Search end date"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create",
+      "description": "Requests available system updates for a device via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "method": "POST",
+      "path": "/system-updates/available",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "body",
+          "description": "Device udid"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates",
+      "description": "Requests a system updates scan for a device via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "method": "POST",
+      "path": "/system-updates/scan",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "body",
+          "description": "Device udid"
+        },
+        {
+          "name": "force",
+          "type": "bool",
+          "location": "body",
+          "description": "Force"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-2",
+      "description": "Requests the schedule of system updates via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "method": "POST",
+      "path": "/system-updates/schedule",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "body",
+          "description": "Device udid"
+        },
+        {
+          "name": "install_action",
+          "type": "string",
+          "location": "body",
+          "description": "Acceptable actions: Default, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart"
+        },
+        {
+          "name": "product_key",
+          "type": "string",
+          "location": "body",
+          "description": "Product key"
+        },
+        {
+          "name": "product_version",
+          "type": "string",
+          "location": "body",
+          "description": "Product version"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-3",
+      "description": "Requests to create or update system updates settings for a policy.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate System Updates Settings.\u003cbr\u003e\u003cbr\u003e\u003cb\u003eRequirements: \u003c/b\u003eThe MDM update command only works with macOS 12+, iOS 9+, iPadOS 13+, or tvOS 12+. Devices must be in \u003cb\u003esupervised\u003c/b\u003e mode. Unsupervised devices will not receive the update command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003eMinor Updates and Patches: \u003c/b\u003eUse version values to control which major, minor or patch updates are sent. Addigy will strictly follow your rules. Version values follow the major.minor.patch standard.\u003cbr\u003e\u003cbr\u003eFor example:\u003cbr\u003e12.0.99 will allow patches, but not the minor update to 12.1\u003cbr\u003e12.9.9 will not allow 12.9.91\u003cbr\u003e\u003cbr\u003e\u003cb\u003eSystem Updates Settings: \u003c/b\u003eThis is what each of the more specialized fields represents within the system updates settings for each os and which are the allowed values for the request.\u003cbr\u003e\u003cbr\u003einstall_action - represents the install action when sending the schedule os command to the device: 1.Default (all OS) 2.InstallForceRestart (macOS Only) 3.InstallLater (macOS Only)\u003cbr\u003emax_user_deferrals - represents how many times the user can defer the updates, this is an optional parameter and it only works when 'Install Action' is 'InstallLater' and for minor os updates\u003cbr\u003eresend_update_command_hour - The time in hours needed to re-send an os update command if the last command status is older than this value. Currently, the default value is 24 hours and the valid values ranges from 1 hour up to 24\u003cbr\u003edays_after_release, hours_after_release and minutes_after_release (DDM updates only): The number of days, hours and minutes to force an update installation via DDM, after the update is released.\u003cbr\u003e\u003cbr\u003e\u003cb\u003eSchedule (excludes updates via DDM): \u003c/b\u003eSystem Updates commands are scheduled to be sent daily at 2AM UTC, but you can schedule them to run on the device's time and which days of the week. The schedule is optional, if you would like to continue to use the default daily schedule, just set the schedule.enabled field to false. However, if you would like to opt in to use the schedule, just set the schedule.enabled field to true and fill all fields since they are required as part of the schedule request. Please note that your organization must have a monthly paid plan to use this feature.\u003cbr\u003e\u003cbr\u003eThis is what each field represents and what are the allowed values for the schedule request:\u003cbr\u003eenabled - represents if the schedule is enabled or disabled (true or false)\u003cbr\u003eweek_days - represents days of the week ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']\u003cbr\u003estarting_time - represents the schedule starting time (hours: 0-23h, min: 0 or 30)\u003cbr\u003ecut_off_time - represents last time within the maintenance window to send updates commands to the devices (min: 30, 45, 60)\u003cbr\u003emaintenance_window - represents how long do the schedule runs for in 2x hour intervals (hours: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24)\u003cbr\u003e\u003cbr\u003e\u003cbr\u003eFor more information about System Updates please visit [System Updates via MDM](https://support.addigy.com/hc/en-us/articles/10073419654931).",
+      "method": "POST",
+      "path": "/system-updates/settings",
+      "params": [
+        {
+          "name": "ios_settings",
+          "type": "object",
+          "location": "body",
+          "description": "Ios settings"
+        },
+        {
+          "name": "ipados_settings",
+          "type": "object",
+          "location": "body",
+          "description": "Ipados settings"
+        },
+        {
+          "name": "macos_settings",
+          "type": "object",
+          "location": "body",
+          "description": "Macos settings"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        },
+        {
+          "name": "schedule",
+          "type": "object",
+          "location": "body",
+          "description": "Schedule"
+        },
+        {
+          "name": "tvos_settings",
+          "type": "object",
+          "location": "body",
+          "description": "Tvos settings"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-4",
+      "description": "Requests system updates statuses for a device via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "method": "POST",
+      "path": "/system-updates/status",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "body",
+          "description": "Device udid"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-5",
+      "description": "Gets available updates reported for multiple devices. Optional: agent_ids. Returns array of SystemUpdatesAvailableResponse.",
+      "method": "POST",
+      "path": "/system-updates/available/query",
+      "params": [
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Agent ids"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-6",
+      "description": "Gets installed system updates reported for multiple devices. Optional: agent_ids, from, to. Returns array of SystemUpdatesInstalledResponse.",
+      "method": "POST",
+      "path": "/system-updates/installed/query",
+      "params": [
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Agent ids"
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "location": "body",
+          "description": "From"
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "location": "body",
+          "description": "To"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-7",
+      "description": "Requests to schedule system updates (on-demand) for devices via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003e[View System Updates Settings, Create System Updates Settings]\u003cbr\u003e\u003cbr\u003e\u003cb\u003e[MDM System Updates Only] \u003c/b\u003eSystem Updates commands are scheduled to be sent daily at 2AM UTC, but you can send them now to the device(s) on this list. Please note that your organization must have a monthly paid plan to use this feature.",
+      "method": "POST",
+      "path": "/system-updates/on-demand/device-uuids",
+      "params": [
+        {
+          "name": "device_uuids",
+          "type": "array",
+          "location": "body",
+          "description": "Device uuids"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-8",
+      "description": "Requests to schedule system updates (on-demand) for policy devices via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003e[View System Updates Settings, Create System Updates Settings]\u003cbr\u003e\u003cbr\u003e\u003cb\u003e[MDM System Updates Only] \u003c/b\u003eSystem Updates commands are scheduled to be sent daily at 2AM UTC, but you can send them now to the device(s) in this policy. Please note that your organization must have a monthly paid plan to use this feature.",
+      "method": "POST",
+      "path": "/system-updates/on-demand/policy-id",
+      "params": [
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_create-systemupdates-9",
+      "description": "Requests to send installed system updates reported for policy devices to user email.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Updates Settings.",
+      "method": "POST",
+      "path": "/system-updates/installed/organization/report/email",
+      "params": [
+        {
+          "name": "email",
+          "type": "string",
+          "location": "body",
+          "description": "Email"
+        },
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "body",
+          "description": "Policy id"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_list",
+      "description": "Gets available system updates reported for a device.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List.",
+      "method": "GET",
+      "path": "/system-updates/available",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "query",
+          "description": "Device UDID"
+        }
+      ]
+    },
+    {
+      "name": "system-updates_list-systemupdates",
+      "description": "Get latest system updates available by os type. Returns the SystemUpdatesLatestUpdates.",
+      "method": "GET",
+      "path": "/system-updates/latest",
+      "params": []
+    },
+    {
+      "name": "system-updates_list-systemupdates-2",
+      "description": "Gets system updates settings for a policy.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Updates Settings.",
+      "method": "GET",
+      "path": "/system-updates/settings",
+      "params": [
+        {
+          "name": "policy_id",
+          "type": "string",
+          "location": "query",
+          "description": "Policy Id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "system-updates_list-systemupdates-3",
+      "description": "Gets current system updates statuses reported for a device.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "method": "GET",
+      "path": "/system-updates/status",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "query",
+          "description": "Device udid",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "system-updates_list-systemupdates-4",
+      "description": "Gets available system updates reported for a device, with their current installation statuses.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "method": "GET",
+      "path": "/system-updates/available/status",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "query",
+          "description": "Device udid",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "system-updates_list-systemupdates-5",
+      "description": "Gets device system updates statuses via ddm status report.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List.",
+      "method": "GET",
+      "path": "/system-updates/ddm/status",
+      "params": [
+        {
+          "name": "device_udid",
+          "type": "string",
+          "location": "query",
+          "description": "Device udid",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "system-updates_list-systemupdates-6",
+      "description": "Gets installed system updates reported for a device.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Updates Settings.",
+      "method": "GET",
+      "path": "/system-updates/installed/device/report",
+      "params": [
+        {
+          "name": "device_uuid",
+          "type": "string",
+          "location": "query",
+          "description": "Device Uuid",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "users_delete",
+      "description": "Deletes a user from the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eRemove User. Destructive.",
+      "method": "DELETE",
+      "path": "/users",
+      "params": [
+        {
+          "name": "email",
+          "type": "string",
+          "location": "query",
+          "description": "Email of the user to remove"
+        }
+      ]
+    },
+    {
+      "name": "users_update",
+      "description": "Update a user. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit User.",
+      "method": "PUT",
+      "path": "/users",
+      "params": [
+        {
+          "name": "email",
+          "type": "string",
+          "location": "body",
+          "description": "This is the email of the user to update.",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "location": "body",
+          "description": "Name"
+        },
+        {
+          "name": "phone",
+          "type": "string",
+          "location": "body",
+          "description": "Phone"
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "location": "body",
+          "description": "Role"
+        }
+      ]
+    }
+  ]
+}

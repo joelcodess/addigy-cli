@@ -1,0 +1,27 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - errorlint
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+  exclusions:
+    generated: lax
+    rules:
+      # internal/types is a generated catalog of every spec schema; many types
+      # are intentionally unreferenced (kept for completeness / future use).
+      - path: internal/types/
+        linters:
+          - unused
+      # Multi-line, punctuated error strings are intentional user-facing hints.
+      - text: "ST1005:"
+        linters:
+          - staticcheck
+
+formatters:
+  enable:
+    - gofmt
+    - goimports

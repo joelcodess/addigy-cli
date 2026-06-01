@@ -1,0 +1,36 @@
+# Binaries (root-anchored so they don't match the cmd/addigy-cli source dir)
+/addigy-cli
+/addigy-mcp
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build output
+build/
+dist/
+bin/
+
+# Test artifacts
+*.test
+*.out
+coverage.txt
+coverage.html
+
+# Go workspace
+go.work
+go.work.sum
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local SQLite stores
+*.db
+*.sqlite
+*.sqlite3
+
+# Local agent / editor settings
+.claude/

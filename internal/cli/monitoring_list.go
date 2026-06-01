@@ -1,0 +1,98 @@
+// Copyright 2026 joelcodess. Licensed under Apache-2.0. See LICENSE.
+
+package cli
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+
+	"github.com/spf13/cobra"
+)
+
+func newMonitoringListCmd(flags *rootFlags) *cobra.Command {
+	var flagStatus string
+	var flagPage string
+	var flagPerPage int
+	var flagAll bool
+
+	cmd := &cobra.Command{
+		Use:         "list",
+		Short:       "Get list of received alerts for the organization.",
+		Example:     "  addigy-cli monitoring list --status example-value --page 42 --per-page 42",
+		Annotations: map[string]string{"pp:endpoint": "monitoring.list", "pp:method": "GET", "pp:path": "/monitoring/received-alerts", "mcp:read-only": "true"},
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if cmd.Flags().Changed("status") {
+				allowedStatus := []string{"All", "Unattended", "Resolved", "Acknowledged"}
+				validStatus := false
+				for _, v := range allowedStatus {
+					if flagStatus == v {
+						validStatus = true
+						break
+					}
+				}
+				if !validStatus {
+					fmt.Fprintf(os.Stderr, "warning: --%s %q not in allowed set %v\n", "status", flagStatus, allowedStatus)
+				}
+			}
+			c, err := flags.newClient()
+			if err != nil {
+				return err
+			}
+
+			path := "/monitoring/received-alerts"
+			data, prov, err := resolvePaginatedRead(cmd.Context(), c, flags, "monitoring", path, map[string]string{
+				"status":   fmt.Sprintf("%v", flagStatus),
+				"page":     fmt.Sprintf("%v", flagPage),
+				"per_page": fmt.Sprintf("%v", flagPerPage),
+			}, nil, flagAll, "", "", "")
+			if err != nil {
+				return classifyAPIError(err, flags)
+			}
+			// Print provenance to stderr for human-facing output
+			{
+				var countItems []json.RawMessage
+				_ = json.Unmarshal(data, &countItems)
+				printProvenance(cmd, len(countItems), prov)
+			}
+			// For JSON output, wrap with provenance envelope before passing through flags.
+			// --select wins over --compact when both are set; --compact only runs when
+			// no explicit fields were requested. Explicit format flags (--csv, --quiet,
+			// --plain) opt out of the auto-JSON path so piped consumers that asked for
+			// a non-JSON format reach the standard pipeline below.
+			if flags.asJSON || (!isTerminal(cmd.OutOrStdout()) && !flags.csv && !flags.quiet && !flags.plain) {
+				filtered := data
+				if flags.selectFields != "" {
+					filtered = filterFields(filtered, flags.selectFields)
+				} else if flags.compact {
+					filtered = compactFields(filtered)
+				}
+				wrapped, wrapErr := wrapWithProvenance(filtered, prov)
+				if wrapErr != nil {
+					return wrapErr
+				}
+				return printOutput(cmd.OutOrStdout(), wrapped, true)
+			}
+			// For all other output modes (table, csv, plain, quiet), use the standard pipeline
+			if wantsHumanTable(cmd.OutOrStdout(), flags) {
+				var items []map[string]any
+				if json.Unmarshal(data, &items) == nil && len(items) > 0 {
+					if err := printAutoTable(cmd.OutOrStdout(), items); err != nil {
+						return err
+					}
+					if len(items) >= 25 {
+						fmt.Fprintf(os.Stderr, "\nShowing %d results. To narrow: add --limit, --json --select, or filter flags.\n", len(items))
+					}
+					return nil
+				}
+			}
+			return printOutputWithFlags(cmd.OutOrStdout(), data, flags)
+		},
+	}
+	cmd.Flags().StringVar(&flagStatus, "status", "All", "Addigy Alert Status (one of: All, Unattended, Resolved, Acknowledged)")
+	cmd.Flags().StringVar(&flagPage, "page", "1", "Requested Page")
+	cmd.Flags().IntVar(&flagPerPage, "per-page", 10, "Number of items in the response.")
+	cmd.Flags().BoolVar(&flagAll, "all", false, "Fetch all pages")
+
+	return cmd
+}

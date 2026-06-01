@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a command that's broken, wrong, or missing
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! First run `addigy-cli doctor` — exit codes `4` (auth),
+        `7` (rate limit), or `3` (not found) usually mean configuration, not a bug.
+        **Do not paste API keys, device serials, user emails, or org IDs** — redact them.
+        For security issues, do **not** file here; see SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `addigy-cli version`
+      placeholder: addigy-cli 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS / arch
+      placeholder: macOS 14 arm64
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: The exact command (prefer `--dry-run` so nothing real leaks)
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+      description: What you expected, and what happened (include exit code and redacted `--json` output)
+    validations:
+      required: true
