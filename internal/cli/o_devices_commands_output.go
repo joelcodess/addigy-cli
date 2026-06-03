@@ -1,0 +1,93 @@
+// Copyright 2026 joelcodess. Licensed under Apache-2.0. See LICENSE.
+
+package cli
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+
+	"github.com/spf13/cobra"
+)
+
+func newODevicesCommandsOutputCmd(flags *rootFlags) *cobra.Command {
+	var flagAgentId string
+	var flagActionId string
+
+	cmd := &cobra.Command{
+		Use:   "output <organization_id>",
+		Short: "Get the output of a command run on a device.",
+		Long: "Fetch the result of a command previously started with\n" +
+			"'o devices commands run'. The run response returns an action_id; pass it\n" +
+			"here along with the device's agent id.",
+		Example: "  addigy-cli o devices commands output 550e8400-e29b-41d4-a716-446655440000 \\\n" +
+			"    --agent-id 89435d48-7f42-4020-97ae-de62134f56cc --action-id 7c9e6679-7425-40de-944b-e07fc1f90ae7",
+		Annotations: map[string]string{"pp:endpoint": "devices.commands.output", "pp:method": "GET", "pp:path": "/o/{organization_id}/devices/{agent_id}/commands/{action_id}/output", "mcp:read-only": "true"},
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if len(args) == 0 {
+				return cmd.Help()
+			}
+			if !cmd.Flags().Changed("agent-id") && !flags.dryRun {
+				return fmt.Errorf("required flag \"%s\" not set", "agent-id")
+			}
+			if !cmd.Flags().Changed("action-id") && !flags.dryRun {
+				return fmt.Errorf("required flag \"%s\" not set", "action-id")
+			}
+			c, err := flags.newClient()
+			if err != nil {
+				return err
+			}
+
+			path := "/o/{organization_id}/devices/{agent_id}/commands/{action_id}/output"
+			path = replacePathParam(path, "organization_id", args[0])
+			path = replacePathParam(path, "agent_id", flagAgentId)
+			path = replacePathParam(path, "action_id", flagActionId)
+			data, prov, err := resolveRead(cmd.Context(), c, flags, "command-output", false, path, nil, nil)
+			if err != nil {
+				return classifyAPIError(err, flags)
+			}
+			// Print provenance to stderr for human-facing output
+			{
+				var countItems []json.RawMessage
+				_ = json.Unmarshal(data, &countItems)
+				printProvenance(cmd, len(countItems), prov)
+			}
+			// For JSON output, wrap with provenance envelope before passing through flags.
+			// --select wins over --compact when both are set; --compact only runs when
+			// no explicit fields were requested. Explicit format flags (--csv, --quiet,
+			// --plain) opt out of the auto-JSON path so piped consumers that asked for
+			// a non-JSON format reach the standard pipeline below.
+			if flags.asJSON || (!isTerminal(cmd.OutOrStdout()) && !flags.csv && !flags.quiet && !flags.plain) {
+				filtered := data
+				if flags.selectFields != "" {
+					filtered = filterFields(filtered, flags.selectFields)
+				} else if flags.compact {
+					filtered = compactFields(filtered)
+				}
+				wrapped, wrapErr := wrapWithProvenance(filtered, prov)
+				if wrapErr != nil {
+					return wrapErr
+				}
+				return printOutput(cmd.OutOrStdout(), wrapped, true)
+			}
+			// For all other output modes (table, csv, plain, quiet), use the standard pipeline
+			if wantsHumanTable(cmd.OutOrStdout(), flags) {
+				var items []map[string]any
+				if json.Unmarshal(data, &items) == nil && len(items) > 0 {
+					if err := printAutoTable(cmd.OutOrStdout(), items); err != nil {
+						return err
+					}
+					if len(items) >= 25 {
+						fmt.Fprintf(os.Stderr, "\nShowing %d results. To narrow: add --limit, --json --select, or filter flags.\n", len(items))
+					}
+					return nil
+				}
+			}
+			return printOutputWithFlags(cmd.OutOrStdout(), data, flags)
+		},
+	}
+	cmd.Flags().StringVar(&flagAgentId, "agent-id", "", "Agent id of the device the command ran on")
+	cmd.Flags().StringVar(&flagActionId, "action-id", "", "Action id returned by 'o devices commands run'")
+
+	return cmd
+}

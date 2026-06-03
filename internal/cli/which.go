@@ -34,6 +34,8 @@ var whichIndex = []whichEntry{
 	{Command: "drift", Description: "Diffs the mirror's current rows against the prior snapshot for any entity (devices, facts, policies, software).", Group: "Local state that compounds", WhyItMatters: "Pick this when an agent asks 'what changed in this fleet recently?' instead of paging multiple endpoints."},
 	{Command: "policy-coverage", Description: "Per-policy device counts joined to last-checkin so the user sees both coverage and freshness in one view.", Group: "Local state that compounds", WhyItMatters: "Use this to find policies with high coverage but stale devices, or low coverage but healthy devices."},
 	{Command: "fleet-summary", Description: "Single command emitting device count, stale fraction, alert count, MDM queue depth, Smart-Software pending count, and policy coverage percent.", Group: "Agent-native triage", WhyItMatters: "Use this as the first call in any Addigy triage workflow; everything else narrows from here."},
+	{Command: "o devices commands run", Description: "Run a shell command on one or more devices and get back an action_id for the result.", Group: "Device actions", WhyItMatters: "This is the API path for remote command execution; pair it with 'o devices commands output' to read the result instead of polling the UI."},
+	{Command: "o devices commands output", Description: "Get the output of a command previously started with 'o devices commands run', by agent id and action id.", Group: "Device actions", WhyItMatters: "Use this to collect the result of a remote command run rather than checking the device's activity log by hand."},
 }
 
 // whichMatch pairs an index entry with its ranking score for a query.

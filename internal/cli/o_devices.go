@@ -13,5 +13,6 @@ func newODevicesCmd(flags *rootFlags) *cobra.Command {
 	}
 
 	cmd.AddCommand(newODevicesCreateCmd(flags))
+	cmd.AddCommand(newODevicesCommandsCmd(flags))
 	return cmd
 }
