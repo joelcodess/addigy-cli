@@ -146,10 +146,6 @@ These capabilities aren't available in any other tool for this API.
 
 - `addigy-cli files` — Get a list of file usages for a list of File IDs.
 
-**impersonation** — Manage impersonation
-
-- `addigy-cli impersonation` — Creates a session for impersonating into a child organization.
-
 **maintenance** — Manage maintenance
 
 - `addigy-cli maintenance create` — Create a maintenance item. <br><b>Permission Required: </b>Create Catalog Maintenance.

@@ -279,12 +279,6 @@ func handleContext(_ context.Context, _ mcplib.CallToolRequest) (*mcplib.CallToo
 				"endpoints":   []string{"create"},
 			},
 			{
-				"name":        "impersonation",
-				"description": "Manage impersonation",
-				"endpoints":   []string{"create"},
-				"searchable":  true,
-			},
-			{
 				"name":        "maintenance",
 				"description": "Manage maintenance",
 				"endpoints":   []string{"create", "create-policy", "create-query", "create-staged", "create-staged-2", "create-staged-3", "delete", "delete-policy", "delete-staged", "update", "update-staged"},

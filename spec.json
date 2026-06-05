@@ -5513,57 +5513,6 @@
         ]
       }
     },
-    "/impersonation/session": {
-      "post": {
-        "x-private": true,
-        "summary": "Create an impersonation session.",
-        "description": "Creates a session for impersonating into a child organization.",
-        "tags": [
-          "impersonation"
-        ],
-        "requestBody": {
-          "description": "Request for creating an impersonation session",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#/components/schemas/impersonation_session_request"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/impersonation_session_response"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/response_error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
-      }
-    },
     "/maintenance": {
       "post": {
         "summary": "Create a maintenance item.",
@@ -19863,57 +19812,6 @@
           ]
         }
       },
-      "impersonation": {
-        "post": {
-          "x-private": true,
-          "summary": "Create an impersonation session.",
-          "description": "Creates a session for impersonating into a child organization.",
-          "tags": [
-            "impersonation"
-          ],
-          "requestBody": {
-            "description": "Request for creating an impersonation session",
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/impersonation_session_request"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "$ref": "#/components/schemas/impersonation_session_response"
-                  }
-                }
-              }
-            },
-            "default": {
-              "description": "Error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "$ref": "#/components/schemas/response_error"
-                  }
-                }
-              }
-            }
-          },
-          "security": [
-            {
-              "api_key": []
-            }
-          ]
-        }
-      },
       "identity_policy_configurations_query": {
         "post": {
           "x-private": true,
@@ -24149,43 +24047,6 @@
           }
         }
       },
-      "impersonation_session_response": {
-        "title": "impersonation_session.Response",
-        "type": "object",
-        "properties": {
-          "orgid": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "token": {
-            "type": "string"
-          },
-          "api_key": {
-            "type": "string"
-          },
-          "otp_tfa": {
-            "type": "boolean"
-          },
-          "addigy_tfa_authorized": {
-            "type": "boolean"
-          },
-          "expiration_date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "policies": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "mdm_command_command": {
         "title": "mdm_command.Command",
         "type": "object",
@@ -27420,21 +27281,6 @@
             "type": "integer"
           },
           "url": {
-            "type": "string"
-          }
-        }
-      },
-      "impersonation_session_request": {
-        "title": "impersonation_session.Request",
-        "type": "object",
-        "properties": {
-          "parent_orgid": {
-            "type": "string"
-          },
-          "child_orgid": {
-            "type": "string"
-          },
-          "user_email": {
             "type": "string"
           }
         }

@@ -110,7 +110,6 @@ func tailKnownResources() []string {
 		"facts",
 		"feature-betas",
 		"files",
-		"impersonation",
 		"maintenance",
 		"managed-app-configurations",
 		"mdm",

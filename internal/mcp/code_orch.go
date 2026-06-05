@@ -227,14 +227,6 @@ var codeOrchEndpoints = []codeOrchEndpoint{
 		keywords:   codeOrchKeywords("files", "create", "Get a list of file usages for a list of File IDs.", "/files/usage"),
 	},
 	{
-		ID:         "impersonation.create",
-		Method:     "POST",
-		Path:       "/impersonation/session",
-		Summary:    "Creates a session for impersonating into a child organization.",
-		Positional: []string{},
-		keywords:   codeOrchKeywords("impersonation", "create", "Creates a session for impersonating into a child organization.", "/impersonation/session"),
-	},
-	{
 		ID:         "maintenance.create",
 		Method:     "POST",
 		Path:       "/maintenance",

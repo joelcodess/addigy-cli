@@ -476,32 +476,6 @@
       ]
     },
     {
-      "name": "impersonation_create",
-      "description": "Creates a session for impersonating into a child organization. Optional: child_orgid, parent_orgid, user_email. Returns the new ImpersonationSessionResponse.",
-      "method": "POST",
-      "path": "/impersonation/session",
-      "params": [
-        {
-          "name": "child_orgid",
-          "type": "string",
-          "location": "body",
-          "description": "Child orgid"
-        },
-        {
-          "name": "parent_orgid",
-          "type": "string",
-          "location": "body",
-          "description": "Parent orgid"
-        },
-        {
-          "name": "user_email",
-          "type": "string",
-          "location": "body",
-          "description": "User email"
-        }
-      ]
-    },
-    {
       "name": "maintenance_create",
       "description": "Create a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Catalog Maintenance.",
       "method": "POST",

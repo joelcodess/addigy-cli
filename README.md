@@ -180,12 +180,6 @@ Manage files
 
 - **`addigy-cli files create`** - Get a list of file usages for a list of File IDs.
 
-### impersonation
-
-Manage impersonation
-
-- **`addigy-cli impersonation create`** - Creates a session for impersonating into a child organization.
-
 ### maintenance
 
 Manage maintenance
