@@ -259,7 +259,6 @@ See README.md or the bundled SKILL.md for recipes.`,
 	rootCmd.AddCommand(newConfigurationPromotedCmd(flags))
 	rootCmd.AddCommand(newDevicesPromotedCmd(flags))
 	rootCmd.AddCommand(newFilesPromotedCmd(flags))
-	rootCmd.AddCommand(newImpersonationPromotedCmd(flags))
 	rootCmd.AddCommand(newOPromotedCmd(flags))
 	rootCmd.AddCommand(newSelfServiceConfigurationsPromotedCmd(flags))
 	rootCmd.AddCommand(newVersionCliCmd())

@@ -889,24 +889,6 @@ type identity_services struct {
 	Okta   json.RawMessage `json:"okta"`
 }
 
-type impersonation_session_request struct {
-	ChildOrgid  string `json:"child_orgid"`
-	ParentOrgid string `json:"parent_orgid"`
-	UserEmail   string `json:"user_email"`
-}
-
-type impersonation_session_response struct {
-	AddigyTfaAuthorized bool            `json:"addigy_tfa_authorized"`
-	ApiKey              string          `json:"api_key"`
-	Email               string          `json:"email"`
-	ExpirationDate      string          `json:"expiration_date"`
-	Orgid               string          `json:"orgid"`
-	OtpTfa              bool            `json:"otp_tfa"`
-	Policies            json.RawMessage `json:"policies"`
-	Role                string          `json:"role"`
-	Token               string          `json:"token"`
-}
-
 type installed_apps_mdm_entities_Application struct {
 	AgentId            string `json:"agent_id"`
 	HasUpdateAvailable bool   `json:"has_update_available"`
