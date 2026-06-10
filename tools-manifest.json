@@ -5682,6 +5682,76 @@
           "description": "Role"
         }
       ]
+    },
+    {
+      "name": "o_devices_commands_run",
+      "description": "Run a shell command on one or more devices in the organization. Required: organization_id, agent_ids, command. Optional: background, run_as_client. Returns the action id for polling output.",
+      "method": "POST",
+      "path": "/o/{organization_id}/devices/commands/run",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "agent_ids",
+          "type": "array",
+          "location": "body",
+          "description": "Agent ids to run the command on",
+          "required": true
+        },
+        {
+          "name": "command",
+          "type": "string",
+          "location": "body",
+          "description": "Shell command to run on the devices",
+          "required": true
+        },
+        {
+          "name": "background",
+          "type": "boolean",
+          "location": "body",
+          "description": "Run the command in the background"
+        },
+        {
+          "name": "run_as_client",
+          "type": "boolean",
+          "location": "body",
+          "description": "Run the command as the logged-in client user instead of root"
+        }
+      ]
+    },
+    {
+      "name": "o_devices_commands_output",
+      "description": "Get the output of a command previously started with 'o devices commands run'. Required: organization_id, agent_id, action_id. Returns the command output.",
+      "method": "GET",
+      "path": "/o/{organization_id}/devices/{agent_id}/commands/{action_id}/output",
+      "params": [
+        {
+          "name": "organization_id",
+          "type": "string",
+          "location": "path",
+          "description": "Organization ID",
+          "required": true
+        },
+        {
+          "name": "agent_id",
+          "type": "string",
+          "location": "path",
+          "description": "Agent id of the device the command ran on",
+          "required": true
+        },
+        {
+          "name": "action_id",
+          "type": "string",
+          "location": "path",
+          "description": "Action id returned by 'o devices commands run'",
+          "required": true
+        }
+      ]
     }
   ]
 }
