@@ -1,7 +1,7 @@
 {
   "api_name": "addigy-documentation",
   "base_url": "",
-  "description": "The [Addigy API](https://app.addigy.com/integrations) is designed to provide Addigy users with programmatic access to all data in their Addigy environment. Via the Addigy API users have read and write access to nearly all the data in their environment allowing them to automate activities in Addigy and integrate into 3rd party systems.\n\nAPI keys can be created within your Addigy organization by visiting [Account -\u003e Integrations](https://app.addigy.com/integrations).\n\n[Read our KB for general information ](https://support.addigy.com/hc/en-us/articles/16938210315411)\n\n**What does it mean if an API v2 endpoint is marked as “Beta”?** In rare cases, the required request and response data for an endpoint may change. Should a change be needed, Addigy will communicate the changes providing time for users to transition and test.\n\nIf you have questions or suggestions for the Addigy API Contact [Addigy Support](mailto:support@addigy.com)",
+  "description": "The [Addigy API](https://app.addigy.com/integrations) is designed to provide Addigy users with programmatic access to all data in their Addigy environment. Via the Addigy API users have read and write access to nearly all the data in their environment allowing them to automate activities in Addigy and integrate into 3rd party systems.\n\nAPI keys can be created within your Addigy organization by visiting [Account -> Integrations](https://app.addigy.com/integrations).\n\n[Read our KB for general information ](https://support.addigy.com/hc/en-us/articles/16938210315411)\n\n**What does it mean if an API v2 endpoint is marked as “Beta”?** In rare cases, the required request and response data for an endpoint may change. Should a change be needed, Addigy will communicate the changes providing time for users to transition and test.\n\nIf you have questions or suggestions for the Addigy API Contact [Addigy Support](mailto:support@addigy.com)",
   "mcp_ready": "full",
   "http_transport": "standard",
   "auth": {
@@ -177,7 +177,7 @@
     },
     {
       "name": "devices_create",
-      "description": "Allow to query for a set of devices based on a value that pertains to one of their device facts. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Allow to query for a set of devices based on a value that pertains to one of their device facts. <br><b>Permission Required: </b>View Devices.",
       "method": "POST",
       "path": "/devices",
       "params": [
@@ -249,7 +249,7 @@
           "name": "return_type",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e string, number, boolean, list",
+          "description": "Possible values: <br> string, number, boolean, list",
           "required": true
         }
       ]
@@ -408,14 +408,14 @@
           "name": "return_type",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e string, number, boolean, list",
+          "description": "Possible values: <br> string, number, boolean, list",
           "required": true
         }
       ]
     },
     {
       "name": "feature-betas_create",
-      "description": "Enables a Beta Feature in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eToggle Feature Betas.",
+      "description": "Enables a Beta Feature in the organization. <br><b>Permission Required: </b>Toggle Feature Betas.",
       "method": "POST",
       "path": "/feature-betas/organizations",
       "params": [
@@ -429,7 +429,7 @@
     },
     {
       "name": "feature-betas_delete",
-      "description": "Disables the Beta Features from the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eToggle Feature Betas. Destructive.",
+      "description": "Disables the Beta Features from the organization. <br><b>Permission Required: </b>Toggle Feature Betas. Destructive.",
       "method": "DELETE",
       "path": "/feature-betas/organizations",
       "params": [
@@ -443,7 +443,7 @@
     },
     {
       "name": "feature-betas_list",
-      "description": "Get all Beta Features available for the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eToggle Feature Betas.",
+      "description": "Get all Beta Features available for the organization. <br><b>Permission Required: </b>Toggle Feature Betas.",
       "method": "GET",
       "path": "/feature-betas",
       "params": [
@@ -477,7 +477,7 @@
     },
     {
       "name": "maintenance_create",
-      "description": "Create a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Catalog Maintenance.",
+      "description": "Create a maintenance item. <br><b>Permission Required: </b>Create Catalog Maintenance.",
       "method": "POST",
       "path": "/maintenance",
       "params": [
@@ -485,7 +485,7 @@
           "name": "day",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e For Monthly: a number between 1 to 27,\u003cbr\u003e For Daily: do not set a..."
+          "description": "Possible values: <br> For Monthly: a number between 1 to 27,<br> For Daily: do not set a..."
         },
         {
           "name": "enabled",
@@ -503,7 +503,7 @@
           "name": "frequency",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e Monthly, Daily or Weekly"
+          "description": "Possible values: <br> Monthly, Daily or Weekly"
         },
         {
           "name": "is_in_blueprint",
@@ -539,7 +539,7 @@
           "name": "scheduled_time",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003eA number between 0 to 23"
+          "description": "Possible values: <br>A number between 0 to 23"
         },
         {
           "name": "scripts",
@@ -563,7 +563,7 @@
     },
     {
       "name": "maintenance_create-policy",
-      "description": "Assign polices to a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Maintenance.",
+      "description": "Assign polices to a maintenance item. <br><b>Permission Required: </b>Edit Policy Maintenance.",
       "method": "POST",
       "path": "/maintenance/policy",
       "params": [
@@ -636,7 +636,7 @@
     },
     {
       "name": "maintenance_create-staged-2",
-      "description": "Confirm a staged maintenance. This will create a maintenance with the same details as the staged maintenance and will send an event. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Catalog Maintenance.",
+      "description": "Confirm a staged maintenance. This will create a maintenance with the same details as the staged maintenance and will send an event. <br><b>Permission Required: </b>Edit Catalog Maintenance.",
       "method": "POST",
       "path": "/maintenance/staged/confirm",
       "params": [
@@ -664,7 +664,7 @@
     },
     {
       "name": "maintenance_delete",
-      "description": "Delete a maintenance item.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Catalog Maintenance. Destructive.",
+      "description": "Delete a maintenance item.<br><b>Permission Required: </b>Delete Catalog Maintenance. Destructive.",
       "method": "DELETE",
       "path": "/maintenance",
       "params": [
@@ -679,7 +679,7 @@
     },
     {
       "name": "maintenance_delete-policy",
-      "description": "Unassign a maintenance item from policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Maintenance. Destructive.",
+      "description": "Unassign a maintenance item from policy. <br><b>Permission Required: </b>Edit Policy Maintenance. Destructive.",
       "method": "DELETE",
       "path": "/maintenance/policy",
       "params": [
@@ -715,7 +715,7 @@
     },
     {
       "name": "maintenance_update",
-      "description": "Update a maintenance item. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Catalog Maintenance.",
+      "description": "Update a maintenance item. <br><b>Permission Required: </b>Edit Catalog Maintenance.",
       "method": "PUT",
       "path": "/maintenance",
       "params": [
@@ -723,7 +723,7 @@
           "name": "day",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e For Monthly: a number between 1 to 27,\u003cbr\u003e For Daily: do not set a..."
+          "description": "Possible values: <br> For Monthly: a number between 1 to 27,<br> For Daily: do not set a..."
         },
         {
           "name": "enabled",
@@ -741,7 +741,7 @@
           "name": "frequency",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e Monthly, Daily or Weekly"
+          "description": "Possible values: <br> Monthly, Daily or Weekly"
         },
         {
           "name": "id",
@@ -783,7 +783,7 @@
           "name": "scheduled_time",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003eA number between 0 to 23"
+          "description": "Possible values: <br>A number between 0 to 23"
         },
         {
           "name": "scripts",
@@ -815,7 +815,7 @@
           "name": "day",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e For Monthly: a number between 1 to 27,\u003cbr\u003e For Daily: do not set a..."
+          "description": "Possible values: <br> For Monthly: a number between 1 to 27,<br> For Daily: do not set a..."
         },
         {
           "name": "enabled",
@@ -833,7 +833,7 @@
           "name": "frequency",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e Monthly, Daily or Weekly"
+          "description": "Possible values: <br> Monthly, Daily or Weekly"
         },
         {
           "name": "id",
@@ -875,7 +875,7 @@
           "name": "scheduled_time",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003eA number between 0 to 23"
+          "description": "Possible values: <br>A number between 0 to 23"
         },
         {
           "name": "scripts",
@@ -899,7 +899,7 @@
     },
     {
       "name": "managed-app-configurations_create",
-      "description": "Requests to create managed app configuration for Apps \u0026 Books applications. Optional: asset_id, bundle_id, configuration (plus 1 more). Returns the new ManagedAppConfigurationsCreateResponse.",
+      "description": "Requests to create managed app configuration for Apps & Books applications. Optional: asset_id, bundle_id, configuration (plus 1 more). Returns the new ManagedAppConfigurationsCreateResponse.",
       "method": "POST",
       "path": "/managed-app-configurations",
       "params": [
@@ -931,7 +931,7 @@
     },
     {
       "name": "managed-app-configurations_delete",
-      "description": "Requests to delete managed app configuration for Apps \u0026 Books applications. Required: location_id, bundle_id. Destructive.",
+      "description": "Requests to delete managed app configuration for Apps & Books applications. Required: location_id, bundle_id. Destructive.",
       "method": "DELETE",
       "path": "/managed-app-configurations",
       "params": [
@@ -953,7 +953,7 @@
     },
     {
       "name": "managed-app-configurations_list",
-      "description": "Gets managed app configuration for Apps \u0026 Books applications. Required: location_id, bundle_id. Returns the ManagedAppConfigurationsListResponse.",
+      "description": "Gets managed app configuration for Apps & Books applications. Required: location_id, bundle_id. Returns the ManagedAppConfigurationsListResponse.",
       "method": "GET",
       "path": "/managed-app-configurations",
       "params": [
@@ -975,7 +975,7 @@
     },
     {
       "name": "mdm_create",
-      "description": "Paginated request that returns list of installed certificates by mdm devices. \u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Paginated request that returns list of installed certificates by mdm devices. <br><br><b>Permission Required: </b>View Devices.",
       "method": "POST",
       "path": "/mdm/certificates/query",
       "params": [
@@ -1066,7 +1066,7 @@
     },
     {
       "name": "mdm_create-devices",
-      "description": "Deploys profile to list of devices and/or managed users. It is an atomic request meaning that if one error is encountered no profile will be deployed to any of the devices and/or managed users \u003cbr\u003e\u003cbr/\u003e\u003cb\u003ePermission Required: \u003c/b\u003e\u003col\u003e\u003cli\u003eView Devices\u003c/li\u003e\u003cli\u003eExecute commands\u003c/li\u003e\u003c/ol\u003e.",
+      "description": "Deploys profile to list of devices and/or managed users. It is an atomic request meaning that if one error is encountered no profile will be deployed to any of the devices and/or managed users <br><br/><b>Permission Required: </b><ol><li>View Devices</li><li>Execute commands</li></ol>.",
       "method": "POST",
       "path": "/mdm/devices/profile/deploy",
       "params": [
@@ -1351,7 +1351,7 @@
           "name": "has_script",
           "type": "bool",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003eTrue if a saved script will be used.\u003cbr\u003e False if a manual script will be indicated"
+          "description": "Possible values: <br>True if a saved script will be used.<br> False if a manual script will be indicated"
         },
         {
           "name": "instructions",
@@ -1369,7 +1369,7 @@
           "name": "level",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e warning or critical"
+          "description": "Possible values: <br> warning or critical"
         },
         {
           "name": "max_value",
@@ -1411,7 +1411,7 @@
           "name": "selector",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e number: \u003e, \u003e=, \u003c, \u003c=,between, changed,\u003cbr\u003e string/date: \u003e, \u003e=, \u003c, \u003c=,between, contains, no contain, changed, \u003cbr\u003eboolean: =, changed, \u003cbr\u003elist: contains, not contain, changed."
+          "description": "Possible values: <br> number: >, >=, <, <=,between, changed,<br> string/date: >, >=, <, <=,between, contains, no contain, changed, <br>boolean: =, changed, <br>list: contains, not contain, changed."
         },
         {
           "name": "send_ticket",
@@ -1429,7 +1429,7 @@
           "name": "value_type",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e number, string, date, boolean, list."
+          "description": "Possible values: <br> number, string, date, boolean, list."
         },
         {
           "name": "version",
@@ -1441,7 +1441,7 @@
     },
     {
       "name": "monitoring_create-policy",
-      "description": "Assign monitoring item to policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Monitoring.",
+      "description": "Assign monitoring item to policy. <br><b>Permission Required: </b>Edit Policy Monitoring.",
       "method": "POST",
       "path": "/monitoring/policy",
       "params": [
@@ -1501,7 +1501,7 @@
     },
     {
       "name": "monitoring_delete",
-      "description": "Delete a monitoring item.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Custom Monitoring. Destructive.",
+      "description": "Delete a monitoring item.<br><b>Permission Required: </b>Delete Custom Monitoring. Destructive.",
       "method": "DELETE",
       "path": "/monitoring",
       "params": [
@@ -1516,7 +1516,7 @@
     },
     {
       "name": "monitoring_delete-policy",
-      "description": "Unassign a monitoring item from policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Monitoring. Destructive.",
+      "description": "Unassign a monitoring item from policy. <br><b>Permission Required: </b>Edit Policy Monitoring. Destructive.",
       "method": "DELETE",
       "path": "/monitoring/policy",
       "params": [
@@ -1599,7 +1599,7 @@
           "name": "has_script",
           "type": "bool",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003eTrue if a saved script will be used.\u003cbr\u003e False if a manual script will be indicated"
+          "description": "Possible values: <br>True if a saved script will be used.<br> False if a manual script will be indicated"
         },
         {
           "name": "id",
@@ -1623,7 +1623,7 @@
           "name": "level",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e warning or critical"
+          "description": "Possible values: <br> warning or critical"
         },
         {
           "name": "max_value",
@@ -1665,7 +1665,7 @@
           "name": "selector",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e number: \u003e, \u003e=, \u003c, \u003c=,between, changed,\u003cbr\u003e string/date: \u003e, \u003e=, \u003c, \u003c=,between, contains, no contain, changed, \u003cbr\u003eboolean: =, changed, \u003cbr\u003elist: contains, not contain, changed."
+          "description": "Possible values: <br> number: >, >=, <, <=,between, changed,<br> string/date: >, >=, <, <=,between, contains, no contain, changed, <br>boolean: =, changed, <br>list: contains, not contain, changed."
         },
         {
           "name": "send_ticket",
@@ -1683,7 +1683,7 @@
           "name": "value_type",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e number, string, date, boolean, list."
+          "description": "Possible values: <br> number, string, date, boolean, list."
         },
         {
           "name": "version",
@@ -1702,7 +1702,7 @@
     },
     {
       "name": "o_benchmarks_create",
-      "description": "Create a benchmark asset. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Benchmark.",
+      "description": "Create a benchmark asset. <br><b>Permission Required: </b>Create Benchmark.",
       "method": "POST",
       "path": "/o/{organization_id}/benchmarks",
       "params": [
@@ -1747,7 +1747,7 @@
     },
     {
       "name": "o_benchmarks_create-o",
-      "description": "Clone a pre built benchmark. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Benchmark.",
+      "description": "Clone a pre built benchmark. <br><b>Permission Required: </b>Create Benchmark.",
       "method": "POST",
       "path": "/o/{organization_id}/benchmarks/pre-built/clone",
       "params": [
@@ -1780,7 +1780,7 @@
     },
     {
       "name": "o_benchmarks_delete",
-      "description": "Delete a benchmark asset.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Benchmark. Destructive.",
+      "description": "Delete a benchmark asset.<br><b>Permission Required: </b>Delete Benchmark. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/benchmarks",
       "params": [
@@ -1802,7 +1802,7 @@
     },
     {
       "name": "o_benchmarks_update",
-      "description": "Update a benchmark asset. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Benchmark.",
+      "description": "Update a benchmark asset. <br><b>Permission Required: </b>Edit Benchmark.",
       "method": "PUT",
       "path": "/o/{organization_id}/benchmarks",
       "params": [
@@ -1848,248 +1848,6 @@
           "type": "string",
           "location": "body",
           "description": "Target os"
-        }
-      ]
-    },
-    {
-      "name": "o_billing_create",
-      "description": "Send email to billing contact. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "POST",
-      "path": "/o/{organization_id}/billing/contact",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        },
-        {
-          "name": "message",
-          "type": "string",
-          "location": "body",
-          "description": "Message"
-        },
-        {
-          "name": "user_email",
-          "type": "string",
-          "location": "body",
-          "description": "User email"
-        }
-      ]
-    },
-    {
-      "name": "o_billing_delete",
-      "description": "Delete a card.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing. Edit Billing. Destructive.",
-      "method": "DELETE",
-      "path": "/o/{organization_id}/billing/cards",
-      "params": [
-        {
-          "name": "card_id",
-          "type": "string",
-          "location": "query",
-          "description": "Card id",
-          "required": true
-        },
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_get",
-      "description": "Get billing account. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "GET",
-      "path": "/o/{organization_id}/billing/account",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_get-o",
-      "description": "Get list of cards.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "GET",
-      "path": "/o/{organization_id}/billing/cards",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_get-o-2",
-      "description": "Get billing data. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "GET",
-      "path": "/o/{organization_id}/billing/data",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_get-o-3",
-      "description": "Get billing invoices. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "GET",
-      "path": "/o/{organization_id}/billing/invoices",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_get-o-4",
-      "description": "Get billing legacy invoices. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "GET",
-      "path": "/o/{organization_id}/billing/invoices/legacy",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_get-o-5",
-      "description": "Get billing invoice. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing.",
-      "method": "GET",
-      "path": "/o/{organization_id}/billing/invoices/legacy/{id}",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        },
-        {
-          "name": "id",
-          "type": "string",
-          "location": "path",
-          "description": "Invoice id",
-          "required": true
-        }
-      ]
-    },
-    {
-      "name": "o_billing_update",
-      "description": "Update a card. The card_id is requires. All other fields are optional. Include just the fields you want to update \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing. Edit Billing.",
-      "method": "PUT",
-      "path": "/o/{organization_id}/billing/cards",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        },
-        {
-          "name": "address_city",
-          "type": "string",
-          "location": "body",
-          "description": "Address city"
-        },
-        {
-          "name": "address_country",
-          "type": "string",
-          "location": "body",
-          "description": "Address country"
-        },
-        {
-          "name": "address_line1",
-          "type": "string",
-          "location": "body",
-          "description": "Address line1"
-        },
-        {
-          "name": "address_line2",
-          "type": "string",
-          "location": "body",
-          "description": "Address line2"
-        },
-        {
-          "name": "address_state",
-          "type": "string",
-          "location": "body",
-          "description": "Address state"
-        },
-        {
-          "name": "address_zip",
-          "type": "string",
-          "location": "body",
-          "description": "Address zip"
-        },
-        {
-          "name": "card_id",
-          "type": "string",
-          "location": "body",
-          "description": "Card id"
-        },
-        {
-          "name": "exp_month",
-          "type": "int",
-          "location": "body",
-          "description": "Exp month"
-        },
-        {
-          "name": "exp_year",
-          "type": "int",
-          "location": "body",
-          "description": "Exp year"
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "location": "body",
-          "description": "Name"
-        }
-      ]
-    },
-    {
-      "name": "o_billing_update-o",
-      "description": "Set a default card. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Billing. Edit Billing.",
-      "method": "PUT",
-      "path": "/o/{organization_id}/billing/cards/default",
-      "params": [
-        {
-          "name": "organization_id",
-          "type": "string",
-          "location": "path",
-          "description": "Organization id",
-          "required": true
-        },
-        {
-          "name": "card_id",
-          "type": "string",
-          "location": "body",
-          "description": "Card id"
         }
       ]
     },
@@ -2173,7 +1931,7 @@
     },
     {
       "name": "o_compliance-rules_create",
-      "description": "Create a compliance rule. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Benchmark.",
+      "description": "Create a compliance rule. <br><b>Permission Required: </b>Create Benchmark.",
       "method": "POST",
       "path": "/o/{organization_id}/compliance-rules",
       "params": [
@@ -2212,7 +1970,7 @@
     },
     {
       "name": "o_compliance-rules_delete",
-      "description": "Delete a compliance rule.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Benchmark. Destructive.",
+      "description": "Delete a compliance rule.<br><b>Permission Required: </b>Delete Benchmark. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/compliance-rules",
       "params": [
@@ -2234,7 +1992,7 @@
     },
     {
       "name": "o_compliance-rules_get",
-      "description": "Get compliance rules using script. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "description": "Get compliance rules using script. <br><b>Permission Required: </b>View Benchmarks.",
       "method": "GET",
       "path": "/o/{organization_id}/compliance-rules/scripts",
       "params": [
@@ -2256,7 +2014,7 @@
     },
     {
       "name": "o_compliance-rules_update",
-      "description": "Update a compliance rule. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Benchmark.",
+      "description": "Update a compliance rule. <br><b>Permission Required: </b>Edit Benchmark.",
       "method": "PUT",
       "path": "/o/{organization_id}/compliance-rules",
       "params": [
@@ -2301,7 +2059,7 @@
     },
     {
       "name": "o_ddm-updates_get",
-      "description": "Gets device active ddm system updates declaration.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView devices.",
+      "description": "Gets device active ddm system updates declaration.<br><b>Permission Required: </b>View devices.",
       "method": "GET",
       "path": "/o/{organization_id}/ddm-updates/devices/declarations/active",
       "params": [
@@ -2323,7 +2081,7 @@
     },
     {
       "name": "o_device_get",
-      "description": "Get device compliance statuses per benchmark.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView devices.",
+      "description": "Get device compliance statuses per benchmark.<br><b>Permission Required: </b>View devices.",
       "method": "GET",
       "path": "/o/{organization_id}/device/compliance/benchmark/status",
       "params": [
@@ -2493,7 +2251,7 @@
     },
     {
       "name": "o_integrations_create",
-      "description": "Enable MalwareBytes OneView integration. Create new account. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Integration.",
+      "description": "Enable MalwareBytes OneView integration. Create new account. <br><b>Permission Required: </b>Create Integration.",
       "method": "POST",
       "path": "/o/{organization_id}/integrations/mbov",
       "params": [
@@ -2544,7 +2302,7 @@
     },
     {
       "name": "o_integrations_create-o",
-      "description": "Enable MalwareBytes OneView integration. Sync with an existing account. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Integration.",
+      "description": "Enable MalwareBytes OneView integration. Sync with an existing account. <br><b>Permission Required: </b>Create Integration.",
       "method": "POST",
       "path": "/o/{organization_id}/integrations/mbov/sync",
       "params": [
@@ -2571,7 +2329,7 @@
     },
     {
       "name": "o_integrations_create-o-2",
-      "description": "Sync policy devices with Autotask configurations. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Integration.",
+      "description": "Sync policy devices with Autotask configurations. <br><b>Permission Required: </b>Edit Integration.",
       "method": "POST",
       "path": "/o/{organization_id}/integrations/autotask/policy/device/sync",
       "params": [
@@ -2592,7 +2350,7 @@
     },
     {
       "name": "o_integrations_create-o-3",
-      "description": "Sync policy devices with ConnectWise configurations. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Integration.",
+      "description": "Sync policy devices with ConnectWise configurations. <br><b>Permission Required: </b>Edit Integration.",
       "method": "POST",
       "path": "/o/{organization_id}/integrations/connectwise/policy/device/sync",
       "params": [
@@ -2613,7 +2371,7 @@
     },
     {
       "name": "o_integrations_delete",
-      "description": "Enable MalwareBytes OneView integration.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Integration. Destructive.",
+      "description": "Enable MalwareBytes OneView integration.<br><b>Permission Required: </b>Delete Integration. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/integrations/mbov",
       "params": [
@@ -2658,7 +2416,7 @@
     },
     {
       "name": "o_integrations_get-o-2",
-      "description": "Get MalwareBytes OneView account catalog usage. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEnable Integration. Install MBBR'.",
+      "description": "Get MalwareBytes OneView account catalog usage. <br><b>Permission Required: </b>Enable Integration. Install MBBR'.",
       "method": "GET",
       "path": "/o/{organization_id}/integrations/mbov/account/usage",
       "params": [
@@ -2702,13 +2460,13 @@
           "name": "excluded_payload_group_ids",
           "type": "array",
           "location": "body",
-          "description": "\u003cb\u003eOptional\u003c/b\u003e Array of specific payload IDs to exclude information about. Without this field, all payloads will be returned."
+          "description": "<b>Optional</b> Array of specific payload IDs to exclude information about. Without this field, all payloads will be returned."
         },
         {
           "name": "payload_group_ids",
           "type": "array",
           "location": "body",
-          "description": "\u003cb\u003eOptional\u003c/b\u003e Array of specific payload IDs to return information about. Without this field, all payloads will be returned."
+          "description": "<b>Optional</b> Array of specific payload IDs to return information about. Without this field, all payloads will be returned."
         }
       ]
     },
@@ -2729,7 +2487,7 @@
           "name": "udid",
           "type": "string",
           "location": "body",
-          "description": "\u003cb\u003eRequired\u003c/b\u003e Device udid."
+          "description": "<b>Required</b> Device udid."
         }
       ]
     },
@@ -2964,7 +2722,7 @@
     },
     {
       "name": "o_policies_create",
-      "description": "Create a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Policy.",
+      "description": "Create a policy. <br><b>Permission Required: </b>Create Policy.",
       "method": "POST",
       "path": "/o/{organization_id}/policies",
       "params": [
@@ -3003,7 +2761,7 @@
     },
     {
       "name": "o_policies_create-o",
-      "description": "Add assignment rule to policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eAutomatic Policy Assignments.",
+      "description": "Add assignment rule to policy. <br><b>Permission Required: </b>Automatic Policy Assignments.",
       "method": "POST",
       "path": "/o/{organization_id}/policies/rule",
       "params": [
@@ -3042,7 +2800,7 @@
     },
     {
       "name": "o_policies_delete",
-      "description": "Delete a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Policy. Destructive.",
+      "description": "Delete a policy. <br><b>Permission Required: </b>Delete Policy. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/policies",
       "params": [
@@ -3064,7 +2822,7 @@
     },
     {
       "name": "o_policies_delete-o",
-      "description": "Delete a policy parent. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy. Destructive.",
+      "description": "Delete a policy parent. <br><b>Permission Required: </b>Edit Policy. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/policies/parent",
       "params": [
@@ -3086,7 +2844,7 @@
     },
     {
       "name": "o_policies_delete-o-2",
-      "description": "Remove assignment rule from policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eAutomatic Policy Assignments. Destructive.",
+      "description": "Remove assignment rule from policy. <br><b>Permission Required: </b>Automatic Policy Assignments. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/policies/rule",
       "params": [
@@ -3115,7 +2873,7 @@
     },
     {
       "name": "o_policies_get",
-      "description": "Get policy assignment rules. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003e.Automatic Policy Assignments.",
+      "description": "Get policy assignment rules. <br><b>Permission Required: </b>.Automatic Policy Assignments.",
       "method": "GET",
       "path": "/o/{organization_id}/policies/rule",
       "params": [
@@ -3137,7 +2895,7 @@
     },
     {
       "name": "o_policies_update",
-      "description": "Update a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "description": "Update a policy. <br><b>Permission Required: </b>Edit Policy.",
       "method": "PUT",
       "path": "/o/{organization_id}/policies",
       "params": [
@@ -3176,7 +2934,7 @@
     },
     {
       "name": "o_policies_update-o",
-      "description": "Update a policy parent. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "description": "Update a policy parent. <br><b>Permission Required: </b>Edit Policy.",
       "method": "PUT",
       "path": "/o/{organization_id}/policies/parent",
       "params": [
@@ -3203,7 +2961,7 @@
     },
     {
       "name": "o_policy_create",
-      "description": "Assign a MalwareBytes OneView site to a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "description": "Assign a MalwareBytes OneView site to a policy. <br><b>Permission Required: </b>Edit Policy.",
       "method": "POST",
       "path": "/o/{organization_id}/policy/mbov-sites",
       "params": [
@@ -3232,7 +2990,7 @@
     },
     {
       "name": "o_policy_create-o",
-      "description": "Assign a benchmark to a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Benchmarks.",
+      "description": "Assign a benchmark to a policy. <br><b>Permission Required: </b>Edit Policy Benchmarks.",
       "method": "POST",
       "path": "/o/{organization_id}/policy/assets/benchmarks",
       "params": [
@@ -3261,7 +3019,7 @@
     },
     {
       "name": "o_policy_delete",
-      "description": "Remove a MalwareBytes OneView site from a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy. Destructive.",
+      "description": "Remove a MalwareBytes OneView site from a policy. <br><b>Permission Required: </b>Edit Policy. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/policy/mbov-sites",
       "params": [
@@ -3283,7 +3041,7 @@
     },
     {
       "name": "o_policy_delete-o",
-      "description": "Remove a benchmark from a policy. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy Benchmarks. Destructive.",
+      "description": "Remove a benchmark from a policy. <br><b>Permission Required: </b>Edit Policy Benchmarks. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/policy/assets/benchmarks",
       "params": [
@@ -3312,7 +3070,7 @@
     },
     {
       "name": "o_policy_get",
-      "description": "Get MalwareBytes OneView policy sites. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "description": "Get MalwareBytes OneView policy sites. <br><b>Permission Required: </b>Edit Policy.",
       "method": "GET",
       "path": "/o/{organization_id}/policy/mbov-sites",
       "params": [
@@ -3529,7 +3287,7 @@
     },
     {
       "name": "o_scripts_delete",
-      "description": "Delete a script. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Predefined Commands. Destructive.",
+      "description": "Delete a script. <br><b>Permission Required: </b>Delete Predefined Commands. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/scripts",
       "params": [
@@ -3551,7 +3309,7 @@
     },
     {
       "name": "o_templates_create",
-      "description": "Create a policy with the assets associated to a template. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Policy.",
+      "description": "Create a policy with the assets associated to a template. <br><b>Permission Required: </b>Create Policy.",
       "method": "POST",
       "path": "/o/{organization_id}/templates",
       "params": [
@@ -3662,7 +3420,7 @@
     },
     {
       "name": "o_variables_create",
-      "description": "Create a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Variable.",
+      "description": "Create a variable. <br><b>Permission Required: </b>Create Variable.",
       "method": "POST",
       "path": "/o/{organization_id}/variables",
       "params": [
@@ -3689,7 +3447,7 @@
     },
     {
       "name": "o_variables_create-o",
-      "description": "Assign policy value to a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "description": "Assign policy value to a variable. <br><b>Permission Required: </b>Edit Policy.",
       "method": "POST",
       "path": "/o/{organization_id}/variables/policies",
       "params": [
@@ -3725,7 +3483,7 @@
     },
     {
       "name": "o_variables_delete",
-      "description": "Delete a variable.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eDelete Variable. Destructive.",
+      "description": "Delete a variable.<br><b>Permission Required: </b>Delete Variable. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/variables",
       "params": [
@@ -3747,7 +3505,7 @@
     },
     {
       "name": "o_variables_delete-o",
-      "description": "Remove policy value from a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy. Destructive.",
+      "description": "Remove policy value from a variable. <br><b>Permission Required: </b>Edit Policy. Destructive.",
       "method": "DELETE",
       "path": "/o/{organization_id}/variables/policies",
       "params": [
@@ -3776,7 +3534,7 @@
     },
     {
       "name": "o_variables_get",
-      "description": "Get policy variable value. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Policy.",
+      "description": "Get policy variable value. <br><b>Permission Required: </b>Edit Policy.",
       "method": "GET",
       "path": "/o/{organization_id}/variables/policies",
       "params": [
@@ -3803,7 +3561,7 @@
     },
     {
       "name": "o_variables_get-o",
-      "description": "Get variable usage.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variable.",
+      "description": "Get variable usage.<br><b>Permission Required: </b>View Variable.",
       "method": "GET",
       "path": "/o/{organization_id}/variables/usage",
       "params": [
@@ -3825,7 +3583,7 @@
     },
     {
       "name": "o_variables_get-o-2",
-      "description": "Get variable value.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variable.",
+      "description": "Get variable value.<br><b>Permission Required: </b>View Variable.",
       "method": "GET",
       "path": "/o/{organization_id}/variables/value",
       "params": [
@@ -3847,7 +3605,7 @@
     },
     {
       "name": "o_variables_get-o-3",
-      "description": "Get variable policy value.\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variable.",
+      "description": "Get variable policy value.<br><b>Permission Required: </b>View Variable.",
       "method": "GET",
       "path": "/o/{organization_id}/variables/policies/value",
       "params": [
@@ -3876,7 +3634,7 @@
     },
     {
       "name": "o_variables_update",
-      "description": "Update a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Variable.",
+      "description": "Update a variable. <br><b>Permission Required: </b>Edit Variable.",
       "method": "PUT",
       "path": "/o/{organization_id}/variables",
       "params": [
@@ -3958,7 +3716,7 @@
     },
     {
       "name": "o_webhooks_update",
-      "description": "Update a variable. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit Variable.",
+      "description": "Update a variable. <br><b>Permission Required: </b>Edit Variable.",
       "method": "PUT",
       "path": "/o/{organization_id}/webhooks",
       "params": [
@@ -3997,7 +3755,7 @@
     },
     {
       "name": "oa_create",
-      "description": "Get a list of benchmark assets for an organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "description": "Get a list of benchmark assets for an organization. <br><b>Permission Required: </b>View Benchmarks.",
       "method": "POST",
       "path": "/oa/benchmarks/query",
       "params": [
@@ -4063,7 +3821,7 @@
     },
     {
       "name": "oa_create-compliancerules",
-      "description": "Get a list of compliance rules for an organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "description": "Get a list of compliance rules for an organization. <br><b>Permission Required: </b>View Benchmarks.",
       "method": "POST",
       "path": "/oa/compliance-rules/query",
       "params": [
@@ -4101,7 +3859,7 @@
     },
     {
       "name": "oa_create-devices",
-      "description": "Get devices compliance status. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Get devices compliance status. <br><b>Permission Required: </b>View Devices.",
       "method": "POST",
       "path": "/oa/devices/compliance/status/query",
       "params": [
@@ -4115,7 +3873,7 @@
     },
     {
       "name": "oa_create-files",
-      "description": "Get a list of files for an organization. \u003cbr\u003e\u003cb\u003ePermission Required:\u003c/b\u003e View Files.",
+      "description": "Get a list of files for an organization. <br><b>Permission Required:</b> View Files.",
       "method": "POST",
       "path": "/oa/files/query",
       "params": [
@@ -4173,7 +3931,7 @@
     },
     {
       "name": "oa_create-installedapps",
-      "description": "Query installed apps from a device providing some agent IDs. \u003cbr\u003e\u003cb\u003ePermission Required:\u003c/b\u003e View Devices.",
+      "description": "Query installed apps from a device providing some agent IDs. <br><b>Permission Required:</b> View Devices.",
       "method": "POST",
       "path": "/oa/installed-apps/mdm/query",
       "params": [
@@ -4283,7 +4041,7 @@
           "name": "policies",
           "type": "string",
           "location": "body",
-          "description": "\u003cb\u003eOptional\u003c/b\u003e Array of specific Policy IDs to return information about. Without this field, all policies will be returned."
+          "description": "<b>Optional</b> Array of specific Policy IDs to return information about. Without this field, all policies will be returned."
         }
       ]
     },
@@ -4379,7 +4137,7 @@
     },
     {
       "name": "oa_create-variables",
-      "description": "Get a list of variables for an organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Variables.",
+      "description": "Get a list of variables for an organization. <br><b>Permission Required: </b>View Variables.",
       "method": "POST",
       "path": "/oa/variables/query",
       "params": [
@@ -4474,21 +4232,21 @@
     },
     {
       "name": "oa_list-benchmarks",
-      "description": "Get pre-built benchmarks. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "description": "Get pre-built benchmarks. <br><b>Permission Required: </b>View Benchmarks.",
       "method": "GET",
       "path": "/oa/benchmarks/pre-built",
       "params": []
     },
     {
       "name": "oa_list-compliancerules",
-      "description": "Get pre-built compliance rules. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "description": "Get pre-built compliance rules. <br><b>Permission Required: </b>View Benchmarks.",
       "method": "GET",
       "path": "/oa/compliance-rules/pre-built",
       "params": []
     },
     {
       "name": "oa_list-compliancerules-2",
-      "description": "Get a compliance rule usage. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Benchmarks.",
+      "description": "Get a compliance rule usage. <br><b>Permission Required: </b>View Benchmarks.",
       "method": "GET",
       "path": "/oa/compliance-rules/usage",
       "params": [
@@ -4951,7 +4709,7 @@
     },
     {
       "name": "self-service-configurations_create",
-      "description": "Creates a new self service configuration in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate Instruction.",
+      "description": "Creates a new self service configuration in the organization. <br><b>Permission Required: </b>Create Instruction.",
       "method": "POST",
       "path": "/self-service-configurations",
       "params": [
@@ -5085,7 +4843,7 @@
           "name": "os_type",
           "type": "string",
           "location": "body",
-          "description": "Possible values: \u003cbr\u003e macOS or iOS"
+          "description": "Possible values: <br> macOS or iOS"
         },
         {
           "name": "screenview_prompt_text",
@@ -5133,7 +4891,7 @@
     },
     {
       "name": "static-fields_create",
-      "description": "Creates a new static field in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Creates a new static field in the organization. <br><b>Permission Required: </b>View Devices.",
       "method": "POST",
       "path": "/static-fields",
       "params": [
@@ -5147,7 +4905,7 @@
     },
     {
       "name": "static-fields_create-staticfields",
-      "description": "Assign static field values to device(s) in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Assign static field values to device(s) in the organization. <br><b>Permission Required: </b>View Devices.",
       "method": "POST",
       "path": "/static-fields/value",
       "params": [
@@ -5173,7 +4931,7 @@
     },
     {
       "name": "static-fields_delete",
-      "description": "Removes the static field from the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices. Destructive.",
+      "description": "Removes the static field from the organization. <br><b>Permission Required: </b>View Devices. Destructive.",
       "method": "DELETE",
       "path": "/static-fields",
       "params": [
@@ -5188,7 +4946,7 @@
     },
     {
       "name": "static-fields_list",
-      "description": "Gets a list of all static fields available for the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Gets a list of all static fields available for the organization. <br><b>Permission Required: </b>View Devices.",
       "method": "GET",
       "path": "/static-fields",
       "params": [
@@ -5208,7 +4966,7 @@
     },
     {
       "name": "static-fields_list-staticfields",
-      "description": "Gets a list of all static fields assigned to devices for the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Gets a list of all static fields assigned to devices for the organization. <br><b>Permission Required: </b>View Devices.",
       "method": "GET",
       "path": "/static-fields/value",
       "params": [
@@ -5228,7 +4986,7 @@
     },
     {
       "name": "static-fields_update",
-      "description": "Updates the name of an existing static field in the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Devices.",
+      "description": "Updates the name of an existing static field in the organization. <br><b>Permission Required: </b>View Devices.",
       "method": "PUT",
       "path": "/static-fields",
       "params": [
@@ -5248,7 +5006,7 @@
     },
     {
       "name": "system-events_create",
-      "description": "Allow to query for a set of system events. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Events.",
+      "description": "Allow to query for a set of system events. <br><b>Permission Required: </b>View System Events.",
       "method": "POST",
       "path": "/system-events/query",
       "params": [
@@ -5280,7 +5038,7 @@
     },
     {
       "name": "system-events_create-systemevents",
-      "description": "Allow to search system events. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Events.",
+      "description": "Allow to search system events. <br><b>Permission Required: </b>View System Events.",
       "method": "POST",
       "path": "/system-events/search",
       "params": [
@@ -5330,7 +5088,7 @@
     },
     {
       "name": "system-updates_create",
-      "description": "Requests available system updates for a device via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "description": "Requests available system updates for a device via MDM command.<br><br><b>Permission Required: </b>View Device List, Execute Predefined Commands.",
       "method": "POST",
       "path": "/system-updates/available",
       "params": [
@@ -5344,7 +5102,7 @@
     },
     {
       "name": "system-updates_create-systemupdates",
-      "description": "Requests a system updates scan for a device via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "description": "Requests a system updates scan for a device via MDM command.<br><br><b>Permission Required: </b>View Device List, Execute Predefined Commands.",
       "method": "POST",
       "path": "/system-updates/scan",
       "params": [
@@ -5364,7 +5122,7 @@
     },
     {
       "name": "system-updates_create-systemupdates-2",
-      "description": "Requests the schedule of system updates via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "description": "Requests the schedule of system updates via MDM command.<br><br><b>Permission Required: </b>View Device List, Execute Predefined Commands.",
       "method": "POST",
       "path": "/system-updates/schedule",
       "params": [
@@ -5396,7 +5154,7 @@
     },
     {
       "name": "system-updates_create-systemupdates-3",
-      "description": "Requests to create or update system updates settings for a policy.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eCreate System Updates Settings.\u003cbr\u003e\u003cbr\u003e\u003cb\u003eRequirements: \u003c/b\u003eThe MDM update command only works with macOS 12+, iOS 9+, iPadOS 13+, or tvOS 12+. Devices must be in \u003cb\u003esupervised\u003c/b\u003e mode. Unsupervised devices will not receive the update command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003eMinor Updates and Patches: \u003c/b\u003eUse version values to control which major, minor or patch updates are sent. Addigy will strictly follow your rules. Version values follow the major.minor.patch standard.\u003cbr\u003e\u003cbr\u003eFor example:\u003cbr\u003e12.0.99 will allow patches, but not the minor update to 12.1\u003cbr\u003e12.9.9 will not allow 12.9.91\u003cbr\u003e\u003cbr\u003e\u003cb\u003eSystem Updates Settings: \u003c/b\u003eThis is what each of the more specialized fields represents within the system updates settings for each os and which are the allowed values for the request.\u003cbr\u003e\u003cbr\u003einstall_action - represents the install action when sending the schedule os command to the device: 1.Default (all OS) 2.InstallForceRestart (macOS Only) 3.InstallLater (macOS Only)\u003cbr\u003emax_user_deferrals - represents how many times the user can defer the updates, this is an optional parameter and it only works when 'Install Action' is 'InstallLater' and for minor os updates\u003cbr\u003eresend_update_command_hour - The time in hours needed to re-send an os update command if the last command status is older than this value. Currently, the default value is 24 hours and the valid values ranges from 1 hour up to 24\u003cbr\u003edays_after_release, hours_after_release and minutes_after_release (DDM updates only): The number of days, hours and minutes to force an update installation via DDM, after the update is released.\u003cbr\u003e\u003cbr\u003e\u003cb\u003eSchedule (excludes updates via DDM): \u003c/b\u003eSystem Updates commands are scheduled to be sent daily at 2AM UTC, but you can schedule them to run on the device's time and which days of the week. The schedule is optional, if you would like to continue to use the default daily schedule, just set the schedule.enabled field to false. However, if you would like to opt in to use the schedule, just set the schedule.enabled field to true and fill all fields since they are required as part of the schedule request. Please note that your organization must have a monthly paid plan to use this feature.\u003cbr\u003e\u003cbr\u003eThis is what each field represents and what are the allowed values for the schedule request:\u003cbr\u003eenabled - represents if the schedule is enabled or disabled (true or false)\u003cbr\u003eweek_days - represents days of the week ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']\u003cbr\u003estarting_time - represents the schedule starting time (hours: 0-23h, min: 0 or 30)\u003cbr\u003ecut_off_time - represents last time within the maintenance window to send updates commands to the devices (min: 30, 45, 60)\u003cbr\u003emaintenance_window - represents how long do the schedule runs for in 2x hour intervals (hours: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24)\u003cbr\u003e\u003cbr\u003e\u003cbr\u003eFor more information about System Updates please visit [System Updates via MDM](https://support.addigy.com/hc/en-us/articles/10073419654931).",
+      "description": "Requests to create or update system updates settings for a policy.<br><br><b>Permission Required: </b>Create System Updates Settings.<br><br><b>Requirements: </b>The MDM update command only works with macOS 12+, iOS 9+, iPadOS 13+, or tvOS 12+. Devices must be in <b>supervised</b> mode. Unsupervised devices will not receive the update command.<br><br><b>Minor Updates and Patches: </b>Use version values to control which major, minor or patch updates are sent. Addigy will strictly follow your rules. Version values follow the major.minor.patch standard.<br><br>For example:<br>12.0.99 will allow patches, but not the minor update to 12.1<br>12.9.9 will not allow 12.9.91<br><br><b>System Updates Settings: </b>This is what each of the more specialized fields represents within the system updates settings for each os and which are the allowed values for the request.<br><br>install_action - represents the install action when sending the schedule os command to the device: 1.Default (all OS) 2.InstallForceRestart (macOS Only) 3.InstallLater (macOS Only)<br>max_user_deferrals - represents how many times the user can defer the updates, this is an optional parameter and it only works when 'Install Action' is 'InstallLater' and for minor os updates<br>resend_update_command_hour - The time in hours needed to re-send an os update command if the last command status is older than this value. Currently, the default value is 24 hours and the valid values ranges from 1 hour up to 24<br>days_after_release, hours_after_release and minutes_after_release (DDM updates only): The number of days, hours and minutes to force an update installation via DDM, after the update is released.<br><br><b>Schedule (excludes updates via DDM): </b>System Updates commands are scheduled to be sent daily at 2AM UTC, but you can schedule them to run on the device's time and which days of the week. The schedule is optional, if you would like to continue to use the default daily schedule, just set the schedule.enabled field to false. However, if you would like to opt in to use the schedule, just set the schedule.enabled field to true and fill all fields since they are required as part of the schedule request. Please note that your organization must have a monthly paid plan to use this feature.<br><br>This is what each field represents and what are the allowed values for the schedule request:<br>enabled - represents if the schedule is enabled or disabled (true or false)<br>week_days - represents days of the week ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']<br>starting_time - represents the schedule starting time (hours: 0-23h, min: 0 or 30)<br>cut_off_time - represents last time within the maintenance window to send updates commands to the devices (min: 30, 45, 60)<br>maintenance_window - represents how long do the schedule runs for in 2x hour intervals (hours: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24)<br><br><br>For more information about System Updates please visit [System Updates via MDM](https://support.addigy.com/hc/en-us/articles/10073419654931).",
       "method": "POST",
       "path": "/system-updates/settings",
       "params": [
@@ -5440,7 +5198,7 @@
     },
     {
       "name": "system-updates_create-systemupdates-4",
-      "description": "Requests system updates statuses for a device via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "description": "Requests system updates statuses for a device via MDM command.<br><br><b>Permission Required: </b>View Device List, Execute Predefined Commands.",
       "method": "POST",
       "path": "/system-updates/status",
       "params": [
@@ -5494,7 +5252,7 @@
     },
     {
       "name": "system-updates_create-systemupdates-7",
-      "description": "Requests to schedule system updates (on-demand) for devices via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003e[View System Updates Settings, Create System Updates Settings]\u003cbr\u003e\u003cbr\u003e\u003cb\u003e[MDM System Updates Only] \u003c/b\u003eSystem Updates commands are scheduled to be sent daily at 2AM UTC, but you can send them now to the device(s) on this list. Please note that your organization must have a monthly paid plan to use this feature.",
+      "description": "Requests to schedule system updates (on-demand) for devices via MDM command.<br><br><b>Permission Required: </b>[View System Updates Settings, Create System Updates Settings]<br><br><b>[MDM System Updates Only] </b>System Updates commands are scheduled to be sent daily at 2AM UTC, but you can send them now to the device(s) on this list. Please note that your organization must have a monthly paid plan to use this feature.",
       "method": "POST",
       "path": "/system-updates/on-demand/device-uuids",
       "params": [
@@ -5508,7 +5266,7 @@
     },
     {
       "name": "system-updates_create-systemupdates-8",
-      "description": "Requests to schedule system updates (on-demand) for policy devices via MDM command.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003e[View System Updates Settings, Create System Updates Settings]\u003cbr\u003e\u003cbr\u003e\u003cb\u003e[MDM System Updates Only] \u003c/b\u003eSystem Updates commands are scheduled to be sent daily at 2AM UTC, but you can send them now to the device(s) in this policy. Please note that your organization must have a monthly paid plan to use this feature.",
+      "description": "Requests to schedule system updates (on-demand) for policy devices via MDM command.<br><br><b>Permission Required: </b>[View System Updates Settings, Create System Updates Settings]<br><br><b>[MDM System Updates Only] </b>System Updates commands are scheduled to be sent daily at 2AM UTC, but you can send them now to the device(s) in this policy. Please note that your organization must have a monthly paid plan to use this feature.",
       "method": "POST",
       "path": "/system-updates/on-demand/policy-id",
       "params": [
@@ -5522,7 +5280,7 @@
     },
     {
       "name": "system-updates_create-systemupdates-9",
-      "description": "Requests to send installed system updates reported for policy devices to user email.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Updates Settings.",
+      "description": "Requests to send installed system updates reported for policy devices to user email.<br><br><b>Permission Required: </b>View System Updates Settings.",
       "method": "POST",
       "path": "/system-updates/installed/organization/report/email",
       "params": [
@@ -5542,7 +5300,7 @@
     },
     {
       "name": "system-updates_list",
-      "description": "Gets available system updates reported for a device.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List.",
+      "description": "Gets available system updates reported for a device.<br><br><b>Permission Required: </b>View Device List.",
       "method": "GET",
       "path": "/system-updates/available",
       "params": [
@@ -5563,7 +5321,7 @@
     },
     {
       "name": "system-updates_list-systemupdates-2",
-      "description": "Gets system updates settings for a policy.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Updates Settings.",
+      "description": "Gets system updates settings for a policy.<br><br><b>Permission Required: </b>View System Updates Settings.",
       "method": "GET",
       "path": "/system-updates/settings",
       "params": [
@@ -5578,7 +5336,7 @@
     },
     {
       "name": "system-updates_list-systemupdates-3",
-      "description": "Gets current system updates statuses reported for a device.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "description": "Gets current system updates statuses reported for a device.<br><br><b>Permission Required: </b>View Device List, Execute Predefined Commands.",
       "method": "GET",
       "path": "/system-updates/status",
       "params": [
@@ -5593,7 +5351,7 @@
     },
     {
       "name": "system-updates_list-systemupdates-4",
-      "description": "Gets available system updates reported for a device, with their current installation statuses.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List, Execute Predefined Commands.",
+      "description": "Gets available system updates reported for a device, with their current installation statuses.<br><br><b>Permission Required: </b>View Device List, Execute Predefined Commands.",
       "method": "GET",
       "path": "/system-updates/available/status",
       "params": [
@@ -5608,7 +5366,7 @@
     },
     {
       "name": "system-updates_list-systemupdates-5",
-      "description": "Gets device system updates statuses via ddm status report.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView Device List.",
+      "description": "Gets device system updates statuses via ddm status report.<br><br><b>Permission Required: </b>View Device List.",
       "method": "GET",
       "path": "/system-updates/ddm/status",
       "params": [
@@ -5623,7 +5381,7 @@
     },
     {
       "name": "system-updates_list-systemupdates-6",
-      "description": "Gets installed system updates reported for a device.\u003cbr\u003e\u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eView System Updates Settings.",
+      "description": "Gets installed system updates reported for a device.<br><br><b>Permission Required: </b>View System Updates Settings.",
       "method": "GET",
       "path": "/system-updates/installed/device/report",
       "params": [
@@ -5638,7 +5396,7 @@
     },
     {
       "name": "users_delete",
-      "description": "Deletes a user from the organization. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eRemove User. Destructive.",
+      "description": "Deletes a user from the organization. <br><b>Permission Required: </b>Remove User. Destructive.",
       "method": "DELETE",
       "path": "/users",
       "params": [
@@ -5652,7 +5410,7 @@
     },
     {
       "name": "users_update",
-      "description": "Update a user. \u003cbr\u003e\u003cb\u003ePermission Required: \u003c/b\u003eEdit User.",
+      "description": "Update a user. <br><b>Permission Required: </b>Edit User.",
       "method": "PUT",
       "path": "/users",
       "params": [

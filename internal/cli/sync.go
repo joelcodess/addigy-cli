@@ -893,8 +893,6 @@ func upsertSingleObject(db *store.Store, resource string, data json.RawMessage) 
 	switch resource {
 	case "benchmarks":
 		return db.UpsertBenchmarks(data)
-	case "billing":
-		return db.UpsertBilling(data)
 	case "children":
 		return db.UpsertChildren(data)
 	case "community":

@@ -216,7 +216,6 @@ func (s *Store) ensureColumn(ctx context.Context, conn *sql.Conn, table, column,
 func (s *Store) backfillColumns(ctx context.Context, conn *sql.Conn) error {
 	for _, c := range []struct{ table, column, decl string }{
 		{table: "benchmarks", column: "o_id", decl: "TEXT"},
-		{table: "billing", column: "o_id", decl: "TEXT"},
 		{table: "children", column: "o_id", decl: "TEXT"},
 		{table: "community", column: "o_id", decl: "TEXT"},
 		{table: "compliance_rules", column: "o_id", decl: "TEXT"},
@@ -295,13 +294,6 @@ func (s *Store) migrate(ctx context.Context) error {
 			"synced_at" DATETIME DEFAULT CURRENT_TIMESTAMP
 		)`,
 		`CREATE INDEX IF NOT EXISTS "idx_benchmarks_o_id" ON "benchmarks"("o_id")`,
-		`CREATE TABLE IF NOT EXISTS "billing" (
-			"id" TEXT PRIMARY KEY,
-			"o_id" TEXT NOT NULL,
-			"data" JSON NOT NULL,
-			"synced_at" DATETIME DEFAULT CURRENT_TIMESTAMP
-		)`,
-		`CREATE INDEX IF NOT EXISTS "idx_billing_o_id" ON "billing"("o_id")`,
 		`CREATE TABLE IF NOT EXISTS "children" (
 			"id" TEXT PRIMARY KEY,
 			"o_id" TEXT NOT NULL,
@@ -956,57 +948,6 @@ func (s *Store) UpsertBenchmarks(data json.RawMessage) error {
 		return err
 	}
 	if err := s.upsertBenchmarksTx(tx, id, obj, data); err != nil {
-		return err
-	}
-
-	return tx.Commit()
-}
-
-// upsertBillingTx writes the typed-table portion of a billing upsert
-// inside an existing transaction. The caller is responsible for the generic
-// resources insert (via upsertGenericResourceTx) and for committing the tx.
-// Splitting this out lets UpsertBatch dispatch typed inserts per item without
-// opening a per-item transaction.
-func (s *Store) upsertBillingTx(tx *sql.Tx, id string, obj map[string]any, data json.RawMessage) error {
-	if _, err := tx.Exec(
-		`INSERT INTO "billing" ("id", "o_id", "data", "synced_at")
-		 VALUES (?, ?, ?, ?)
-		 ON CONFLICT("id") DO UPDATE SET "o_id" = excluded."o_id", "data" = excluded."data", "synced_at" = excluded."synced_at"`,
-		id,
-		lookupFieldValue(obj, "o_id"),
-		string(data),
-		time.Now(),
-	); err != nil {
-		return fmt.Errorf("insert into billing: %w", err)
-	}
-
-	return nil
-}
-
-// UpsertBilling inserts or updates a billing record with domain-specific columns.
-func (s *Store) UpsertBilling(data json.RawMessage) error {
-	var obj map[string]any
-	if err := json.Unmarshal(data, &obj); err != nil {
-		return fmt.Errorf("unmarshaling billing: %w", err)
-	}
-
-	id := extractObjectID(obj)
-	if id == "" {
-		return fmt.Errorf("missing id for billing")
-	}
-
-	s.writeMu.Lock()
-	defer s.writeMu.Unlock()
-	tx, err := s.db.Begin()
-	if err != nil {
-		return err
-	}
-	defer func() { _ = tx.Rollback() }()
-
-	if err := s.upsertGenericResourceTx(tx, "billing", id, data); err != nil {
-		return err
-	}
-	if err := s.upsertBillingTx(tx, id, obj, data); err != nil {
 		return err
 	}
 
@@ -2127,10 +2068,6 @@ func (s *Store) UpsertBatch(resourceType string, items []json.RawMessage) (int, 
 		switch resourceType {
 		case "benchmarks":
 			if err := s.upsertBenchmarksTx(tx, id, obj, item); err != nil {
-				return 0, extractFailures, fmt.Errorf("typed upsert for %s/%s: %w", resourceType, id, err)
-			}
-		case "billing":
-			if err := s.upsertBillingTx(tx, id, obj, item); err != nil {
 				return 0, extractFailures, fmt.Errorf("typed upsert for %s/%s: %w", resourceType, id, err)
 			}
 		case "children":
