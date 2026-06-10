@@ -39,3 +39,20 @@ archives:
         formats: [zip]
 checksum:
   name_template: checksums.txt
+# Artifact signing scaffold — uncomment once a GPG key is provisioned:
+#   1. Generate a release signing key: gpg --quick-generate-key "Addigy CLI Release <joel@addigy.com>" ed25519 sign
+#   2. Export it and add as repo secret GPG_PRIVATE_KEY; import it in release.yml
+#      before the goreleaser step, and set GPG_FINGERPRINT from the imported key.
+#   3. Uncomment the block below. goreleaser will then sign checksums.txt,
+#      letting users verify all artifacts via the signed checksum file.
+# signs:
+#   - artifacts: checksum
+#     cmd: gpg
+#     args:
+#       - --batch
+#       - -u
+#       - "{{ .Env.GPG_FINGERPRINT }}"
+#       - --output
+#       - "${signature}"
+#       - --detach-sign
+#       - "${artifact}"
