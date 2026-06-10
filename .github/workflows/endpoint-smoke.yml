@@ -1,0 +1,30 @@
+name: Endpoint smoke
+
+# Exercises every generated endpoint command against a local mock API:
+# each command must issue exactly the HTTP method and path its pp:*
+# annotations promise, and the command tree must stay in sync with
+# tools-manifest.json in both directions. No credentials, no network.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  endpoint-smoke:
+    name: endpoint smoke (all commands vs mock API)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: smoke-test every endpoint command
+        run: go test -v -count=1 -run 'TestEndpointSmoke|TestManifestCoverage' ./internal/cli/

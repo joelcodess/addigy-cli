@@ -89,11 +89,6 @@ func newOPromotedCmd(flags *rootFlags) *cobra.Command {
 		cmd.AddCommand(sub)
 	}
 	{
-		sub := newOBillingCmd(flags)
-		sub.Hidden = false // unhide: the raw parent is hidden but these are useful under the promoted command
-		cmd.AddCommand(sub)
-	}
-	{
 		sub := newOChildrenCmd(flags)
 		sub.Hidden = false // unhide: the raw parent is hidden but these are useful under the promoted command
 		cmd.AddCommand(sub)

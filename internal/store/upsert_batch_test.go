@@ -299,48 +299,6 @@ func TestUpsertBatch_PopulatesBenchmarksTable(t *testing.T) {
 	}
 }
 
-// TestUpsertBatch_PopulatesBillingTable verifies that UpsertBatch
-// dispatches paginated items into both the generic resources table AND the
-// typed billing table. Regression for issue #268: before the fix, paginated
-// syncs only filled the generic resources table, so domain commands that
-// query the typed table saw zero rows.
-func TestUpsertBatch_PopulatesBillingTable(t *testing.T) {
-	dbPath := filepath.Join(t.TempDir(), "data.db")
-	s, err := Open(dbPath)
-	if err != nil {
-		t.Fatalf("open: %v", err)
-	}
-	defer s.Close()
-
-	items := []json.RawMessage{
-		json.RawMessage(`{"id": "test-001", "o_id": "test-parent-001"}`),
-		json.RawMessage(`{"id": "test-002", "o_id": "test-parent-001"}`),
-		json.RawMessage(`{"id": "test-003", "o_id": "test-parent-001"}`),
-	}
-	if _, _, err := s.UpsertBatch("billing", items); err != nil {
-		t.Fatalf("UpsertBatch: %v", err)
-	}
-
-	db := s.DB()
-
-	var generic int
-	if err := db.QueryRow(`SELECT COUNT(*) FROM resources WHERE resource_type = ?`, "billing").Scan(&generic); err != nil {
-		t.Fatalf("count resources: %v", err)
-	}
-	if generic != len(items) {
-		t.Fatalf("resources count = %d, want %d", generic, len(items))
-	}
-
-	var typed int
-	typedQuery := fmt.Sprintf(`SELECT COUNT(*) FROM "%s"`, "billing")
-	if err := db.QueryRow(typedQuery).Scan(&typed); err != nil {
-		t.Fatalf("count billing: %v", err)
-	}
-	if typed != len(items) {
-		t.Fatalf("billing count = %d, want %d (typed table not populated by UpsertBatch)", typed, len(items))
-	}
-}
-
 // TestUpsertBatch_PopulatesChildrenTable verifies that UpsertBatch
 // dispatches paginated items into both the generic resources table AND the
 // typed children table. Regression for issue #268: before the fix, paginated
